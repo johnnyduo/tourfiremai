@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { parseNidnoi } from '../src/lib/sources/nidnoi';
+import { normalizeAirline } from '../src/lib/sources/extract';
 
 const html = readFileSync('tests/fixtures/nidnoi-tour.html', 'utf8');
 
@@ -19,5 +20,21 @@ describe('parseNidnoi', () => {
 	it('does not invent seat counts when groupsize is 0 (unpublished)', () => {
 		// fixture periods all have groupsize:0, so seats should be undefined, not a misleading 0
 		expect(t?.periods.every((p) => p.seats === undefined)).toBe(true);
+	});
+});
+
+describe('normalizeAirline', () => {
+	it('maps logo filenames/codes to readable names', () => {
+		expect(normalizeAirline('vz_logo')).toBe('Thai Vietjet (VZ)');
+		expect(normalizeAirline('cz_logo_blue')).toBe('China Southern (CZ)');
+		expect(normalizeAirline('airasia-logo.svg?v=2')).toBe('AirAsia');
+		expect(normalizeAirline('sichuan-airlines.jpg?v=2')).toBe('Sichuan Airlines (3U)');
+	});
+	it('keeps already-readable names', () => {
+		expect(normalizeAirline('CHINA SOUTHERN AIRLINES (CZ)')).toBe('CHINA SOUTHERN AIRLINES (CZ)');
+	});
+	it('returns undefined for unknown junk (so the field is hidden)', () => {
+		expect(normalizeAirline('xyz_logo')).toBeUndefined();
+		expect(normalizeAirline(undefined)).toBeUndefined();
 	});
 });

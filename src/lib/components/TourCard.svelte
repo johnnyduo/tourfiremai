@@ -61,6 +61,9 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+		/* tour covers put the destination name/title at the top — crop from the
+		   top so headers aren't decapitated */
+		object-position: top center;
 		display: block;
 	}
 	.fb {

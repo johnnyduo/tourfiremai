@@ -1,7 +1,7 @@
 import type { Adapter } from './types';
 import type { RawTour, Period } from '../types';
 import { getText } from './http';
-import { metaDescription } from './extract';
+import { metaDescription, normalizeAirline } from './extract';
 
 export function parseNidnoi(html: string, url: string): RawTour | null {
 	const idMatch = url.match(/nidn(\d+)/i);
@@ -65,7 +65,7 @@ export function parseNidnoi(html: string, url: string): RawTour | null {
 		description: metaDescription(html),
 		countryRaw: title,
 		image: image ? `https://${image}` : undefined,
-		airline: airlinePic ? airlinePic.split('/').pop()?.replace(/\.\w+$/, '') : undefined,
+		airline: normalizeAirline(airlinePic ? airlinePic.split('/').pop() : undefined),
 		days,
 		nights,
 		periods

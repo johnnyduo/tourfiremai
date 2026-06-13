@@ -130,6 +130,7 @@
 		border-radius: var(--radius);
 		aspect-ratio: 16 / 9;
 		object-fit: cover;
+		object-position: top center;
 	}
 	.head {
 		display: flex;
