@@ -70,16 +70,17 @@ export const nidnoi: Adapter = {
 	label: 'นิดหน่อยทราเวล',
 	enabled: true,
 	async discover() {
-		const idx = await getText('https://www.nidnoitravel.com/sitemap_index.xml');
-		const subs = [...idx.matchAll(/<loc>([^<]+)<\/loc>/g)].map((x) => x[1]);
+		// Live tour links (/tour/nidn{id}/) are on listing pages, NOT the sitemap
+		// (whose package-tour entries are stale from 2019).
 		const urls = new Set<string>();
-		for (const s of subs.filter((u) => /tour|product|post|page|sitemap/i.test(u))) {
+		const pages = ['https://www.nidnoitravel.com/', 'https://www.nidnoitravel.com/tour/'];
+		for (const p of pages) {
 			try {
-				const sm = await getText(s);
-				for (const u of sm.match(/https:\/\/www\.nidnoitravel\.com\/tour\/nidn\d+\/?/gi) ?? [])
-					urls.add(u);
+				const html = await getText(p);
+				for (const u of html.match(/\/tour\/nidn\d+/gi) ?? [])
+					urls.add(`https://www.nidnoitravel.com${u}/`.replace(/\/+$/, '/'));
 			} catch {
-				/* skip bad sub-sitemap */
+				/* skip */
 			}
 		}
 		return [...urls];

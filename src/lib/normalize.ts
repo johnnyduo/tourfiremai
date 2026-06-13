@@ -20,9 +20,16 @@ export function toTour(raw: RawTour, now = new Date(), countryMedian?: number): 
 		(m, p) => (p.seats != null ? Math.min(m ?? Infinity, p.seats) : m),
 		undefined
 	);
-	const discountPct = next?.priceBefore
-		? Math.round(((next.priceBefore - next.price) / next.priceBefore) * 100)
-		: undefined;
+	// Prefer the soonest available period's discount; otherwise the best discount
+	// across all periods (so a discounted-but-not-soonest period still shows).
+	const discountOf = (p: { price: number; priceBefore?: number }) =>
+		p.priceBefore && p.priceBefore > p.price
+			? Math.round(((p.priceBefore - p.price) / p.priceBefore) * 100)
+			: 0;
+	const discountPct =
+		(next && discountOf(next)) ||
+		Math.max(0, ...raw.periods.map(discountOf)) ||
+		undefined;
 	const u = urgencyScore({ nextDepartISO: next?.departISO, minSeats }, now);
 	const d = dealScore({ priceFrom, countryMedian, discountPct });
 	return {
