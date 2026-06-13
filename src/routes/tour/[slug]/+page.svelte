@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { proxyImage } from '$lib/images';
-	import { tourJsonLd, ldJson } from '$lib/seo';
+	import { tourJsonLd, breadcrumbJsonLd, ldJson } from '$lib/seo';
 	import { COUNTRY_LABELS } from '$lib/countries';
 	import { SOURCE_LABELS } from '$lib/sources-meta';
 	import PriceTag from '$lib/components/PriceTag.svelte';
@@ -28,8 +28,20 @@
 	<link rel="canonical" href={`${base}/tour/${t.slug}`} />
 	<meta property="og:title" content={t.title} />
 	<meta property="og:type" content="product" />
+	<meta property="og:locale" content="th_TH" />
+	<meta property="og:url" content={`${base}/tour/${t.slug}`} />
 	{#if t.image}<meta property="og:image" content={proxyImage(t.image, 1200)} />{/if}
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content={t.title} />
+	{#if t.image}<meta name="twitter:image" content={proxyImage(t.image, 1200)} />{/if}
 	{@html `<script type="application/ld+json">${ldJson(tourJsonLd(t, base))}<\/script>`}
+	{@html `<script type="application/ld+json">${ldJson(
+		breadcrumbJsonLd([
+			{ name: 'หน้าแรก', url: base },
+			{ name: `ทัวร์${COUNTRY_LABELS[t.country] ?? t.country}`, url: `${base}/destination/${t.country}` },
+			{ name: t.title, url: `${base}/tour/${t.slug}` }
+		])
+	)}<\/script>`}
 </svelte:head>
 
 <nav class="crumbs">
@@ -93,7 +105,7 @@
 		{/each}
 	</ul>
 
-	<a class="btn-fire" href={t.sourceUrl} target="_blank" rel="nofollow noopener">
+	<a class="btn-fire" href={`/go/${t.id}`} target="_blank" rel="nofollow noopener">
 		จองที่ {SOURCE_LABELS[t.source] ?? t.source} →
 	</a>
 	<p class="note">* TourFireMai เป็นผู้รวบรวมข้อมูล การจองและชำระเงินทำกับบริษัททัวร์ต้นทางโดยตรง ราคาและที่นั่งอาจเปลี่ยนแปลง</p>

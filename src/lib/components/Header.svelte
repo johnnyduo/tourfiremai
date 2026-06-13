@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { COUNTRY_LABELS } from '$lib/countries';
+	import ThemeToggle from './ThemeToggle.svelte';
 	const navCountries = ['china', 'japan', 'korea', 'vietnam', 'taiwan', 'hongkong'];
 </script>
 
@@ -11,6 +12,7 @@
 				<a href={`/destination/${c}`}>{COUNTRY_LABELS[c]}</a>
 			{/each}
 			<a href="/search" class="search-link">ค้นหา</a>
+			<ThemeToggle />
 		</nav>
 	</div>
 </header>

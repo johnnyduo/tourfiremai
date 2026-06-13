@@ -1,18 +1,27 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import DealGrid from '$lib/components/DealGrid.svelte';
 	import { COUNTRY_LABELS } from '$lib/countries';
 	import type { DealsFile } from '$lib/data';
 	import type { Tour } from '$lib/types';
 	export let data: { file: DealsFile };
 
+	let q = '';
 	let country = '';
 	let maxPrice = 0;
 	let sort: 'fire' | 'price' | 'soon' = 'fire';
 
+	// initialise the text query from ?q= (the SearchAction target)
+	onMount(() => {
+		q = new URLSearchParams(window.location.search).get('q') ?? '';
+	});
+
 	const all: Tour[] = data.file.deals;
 	const countries = [...new Set(all.map((d) => d.country))];
 
+	$: query = q.trim().toLowerCase();
 	$: filtered = all
+		.filter((d) => (query ? d.title.toLowerCase().includes(query) : true))
 		.filter((d) => (country ? d.country === country : true))
 		.filter((d) => (maxPrice ? d.priceFrom <= maxPrice : true))
 		.slice()
@@ -35,6 +44,13 @@
 
 <section class="hd">
 	<h1>ค้นหาทัวร์ 🔥</h1>
+	<input
+		class="qbox"
+		type="search"
+		bind:value={q}
+		placeholder="ค้นหาชื่อทัวร์ เช่น ฉงชิ่ง ฮอกไกโด ดานัง…"
+		aria-label="ค้นหาชื่อทัวร์"
+	/>
 	<div class="filters">
 		<select bind:value={country} aria-label="ประเทศ">
 			<option value="">ทุกประเทศ</option>
@@ -67,6 +83,21 @@
 	.hd h1 {
 		font-size: 1.8rem;
 		margin: 0 0 14px;
+	}
+	.qbox {
+		width: 100%;
+		font-family: inherit;
+		font-size: 1rem;
+		padding: 13px 18px;
+		border-radius: 14px;
+		border: 1px solid var(--line);
+		background: var(--card);
+		color: var(--ink);
+		margin-bottom: 12px;
+	}
+	.qbox:focus {
+		outline: 2px solid var(--fire2);
+		border-color: transparent;
 	}
 	.filters {
 		display: flex;

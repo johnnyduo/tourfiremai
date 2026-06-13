@@ -1,0 +1,11 @@
+{
+	"name": "TourFireMai — ทัวร์ไฟไหม้",
+	"short_name": "TourFireMai",
+	"description": "รวมทัวร์ไฟไหม้ ราคาถูก ที่นั่งเหลือน้อย จากบริษัททัวร์ชั้นนำของไทย",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#fffdf9",
+	"theme_color": "#ff5a3c",
+	"lang": "th",
+	"icons": [{ "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }]
+}

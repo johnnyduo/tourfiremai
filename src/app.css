@@ -15,14 +15,12 @@
 	--font: 'IBM Plex Sans Thai', 'Noto Sans Thai', system-ui, -apple-system, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--ink: #f4efe9;
-		--bg: #14110e;
-		--card: #1d1813;
-		--line: #2b241c;
-		--muted: #a99a8c;
-	}
+:root[data-theme='dark'] {
+	--ink: #f4efe9;
+	--bg: #14110e;
+	--card: #1d1813;
+	--line: #2b241c;
+	--muted: #a99a8c;
 }
 
 * {

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import DealGrid from '$lib/components/DealGrid.svelte';
-	import { itemListJsonLd, faqJsonLd, ldJson } from '$lib/seo';
+	import { faqJsonLd, ldJson } from '$lib/seo';
 	export let data;
 	const base = 'https://tourfiremai.com';
 
@@ -30,7 +30,14 @@
 	<meta property="og:title" content="TourFireMai — รวมทัวร์ไฟไหม้ ราคาถูกที่สุดในไทย" />
 	<meta property="og:description" content="ดีลทัวร์ที่ร้อนแรงที่สุด อัปเดตทุกวัน" />
 	<meta property="og:type" content="website" />
-	{@html `<script type="application/ld+json">${ldJson(itemListJsonLd(data.deals.slice(0, 30), base))}<\/script>`}
+	<meta property="og:locale" content="th_TH" />
+	<meta property="og:site_name" content="TourFireMai" />
+	<meta property="og:url" content={base} />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="TourFireMai — รวมทัวร์ไฟไหม้ ราคาถูกที่สุดในไทย" />
+	<meta name="twitter:description" content="ดีลทัวร์ที่ร้อนแรงที่สุด อัปเดตทุกวัน 🔥" />
+	<meta property="og:image" content={`${base}/og.png`} />
+	<meta name="twitter:image" content={`${base}/og.png`} />
 	{@html `<script type="application/ld+json">${ldJson(faqJsonLd(faqs))}<\/script>`}
 </svelte:head>
 

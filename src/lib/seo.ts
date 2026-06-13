@@ -1,4 +1,5 @@
 import type { Tour } from './types';
+import { SOURCE_LABELS } from './sources-meta';
 
 export function tourJsonLd(t: Tour, base: string) {
 	return {
@@ -9,6 +10,20 @@ export function tourJsonLd(t: Tour, base: string) {
 		url: `${base}/tour/${t.slug}`,
 		image: t.image,
 		touristType: 'leisure',
+		itinerary: t.highlights?.length
+			? {
+					'@type': 'ItemList',
+					itemListElement: t.highlights.map((h, i) => ({
+						'@type': 'ListItem',
+						position: i + 1,
+						name: h
+					}))
+				}
+			: undefined,
+		provider: {
+			'@type': 'TravelAgency',
+			name: SOURCE_LABELS[t.source] ?? t.source
+		},
 		offers: {
 			'@type': 'Offer',
 			price: t.priceFrom,
@@ -17,7 +32,7 @@ export function tourJsonLd(t: Tour, base: string) {
 				? 'https://schema.org/InStock'
 				: 'https://schema.org/SoldOut',
 			validThrough: t.nextDepartISO,
-			url: t.sourceUrl
+			url: `${base}/go/${t.id}`
 		}
 	};
 }
@@ -32,6 +47,47 @@ export function itemListJsonLd(tours: Tour[], base: string) {
 			position: i + 1,
 			url: `${base}/tour/${t.slug}`,
 			name: t.title
+		}))
+	};
+}
+
+export function organizationJsonLd(base: string) {
+	return {
+		'@context': 'https://schema.org',
+		'@type': 'Organization',
+		name: 'TourFireMai',
+		url: base,
+		logo: `${base}/icon-512.png`,
+		description:
+			'รวมทัวร์ไฟไหม้ ทัวร์ราคาถูก ที่นั่งเหลือน้อย จากบริษัททัวร์ชั้นนำของไทย จัดอันดับอัตโนมัติ',
+		sameAs: []
+	};
+}
+
+export function webSiteJsonLd(base: string) {
+	return {
+		'@context': 'https://schema.org',
+		'@type': 'WebSite',
+		name: 'TourFireMai',
+		url: base,
+		inLanguage: 'th-TH',
+		potentialAction: {
+			'@type': 'SearchAction',
+			target: { '@type': 'EntryPoint', urlTemplate: `${base}/search?q={query}` },
+			'query-input': 'required name=query'
+		}
+	};
+}
+
+export function breadcrumbJsonLd(crumbs: Array<{ name: string; url: string }>) {
+	return {
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: crumbs.map((c, i) => ({
+			'@type': 'ListItem',
+			position: i + 1,
+			name: c.name,
+			item: c.url
 		}))
 	};
 }

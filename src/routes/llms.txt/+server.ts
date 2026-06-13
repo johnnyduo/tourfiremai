@@ -11,8 +11,7 @@ export const GET = async () =>
 - ยูนิไทยทราเวล (Unithai Travel)
 - อัพ-โอเปอเรชั่น (Up-Operation / tourfiremai.com)
 
-## Data feeds
-- /feed.xml  (RSS of top deals)
+## Pages
 - /sitemap.xml
 
 ## Model

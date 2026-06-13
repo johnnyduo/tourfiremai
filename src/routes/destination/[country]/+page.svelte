@@ -1,6 +1,5 @@
 <script lang="ts">
 	import DealGrid from '$lib/components/DealGrid.svelte';
-	import { itemListJsonLd, ldJson } from '$lib/seo';
 	export let data;
 	const base = 'https://tourfiremai.com';
 </script>
@@ -12,7 +11,6 @@
 		content={`รวมทัวร์${data.label}ราคาถูก โปรไฟไหม้ ออกเดินทางด่วน ที่นั่งใกล้เต็ม จากบริษัททัวร์ชั้นนำ จัดอันดับอัตโนมัติ — ${data.deals.length} ดีล`}
 	/>
 	<link rel="canonical" href={`${base}/destination/${data.country}`} />
-	{@html `<script type="application/ld+json">${ldJson(itemListJsonLd(data.deals.slice(0, 30), base))}<\/script>`}
 </svelte:head>
 
 <section class="hd">

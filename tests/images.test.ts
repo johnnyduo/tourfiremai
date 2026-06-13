@@ -9,7 +9,14 @@ describe('proxyImage', () => {
 		expect(u).toContain('output=webp');
 		expect(u).toContain('w=640');
 	});
-	it('returns placeholder when src missing', () => {
-		expect(proxyImage(undefined, 640)).toContain('placeholder');
+	it('returns a safe fallback when src missing', () => {
+		const u = proxyImage(undefined, 640);
+		expect(u).toContain('wsrv.nl');
+		expect(u).toContain('output=webp');
+	});
+	it('uses progressive + long cache for fast perceived load', () => {
+		const u = proxyImage('https://x.com/a.jpg', 480);
+		expect(u).toContain('&il');
+		expect(u).toContain('maxage=1y');
 	});
 });

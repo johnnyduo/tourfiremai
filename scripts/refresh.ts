@@ -6,6 +6,7 @@ import { normalizeCountry } from '../src/lib/countries';
 import { dedupe } from '../src/lib/dedupe';
 import { mapLimit } from '../src/lib/sources/http';
 import { enabledAdapters } from '../src/lib/sources';
+import { warmUrls } from '../src/lib/images';
 
 function median(arr: number[]): number {
 	const s = [...arr].sort((a, b) => a - b);
@@ -64,8 +65,27 @@ export async function refresh(outPath = 'static/data/deals.json'): Promise<Deals
 	// Don't wipe a good snapshot with an empty result.
 	if (payload.count > 0) {
 		writeFileSync(outPath, JSON.stringify(payload));
+		await warmImageCache(deals.map((d) => d.image));
 	} else {
 		console.warn('refresh produced 0 deals — keeping existing snapshot');
 	}
 	return payload;
+}
+
+/**
+ * Pre-warm wsrv.nl's CDN cache so the first real visitor gets a fast (~0.1s)
+ * cached WebP instead of a slow (~3s) cold conversion. Best-effort, capped.
+ */
+async function warmImageCache(images: Array<string | undefined>) {
+	const urls = warmUrls(images, [480, 768]).slice(0, 1200);
+	let ok = 0;
+	await mapLimit(urls, 12, async (u) => {
+		try {
+			await fetch(u, { method: 'GET', signal: AbortSignal.timeout(20000) });
+			ok++;
+		} catch {
+			/* best effort */
+		}
+	});
+	console.log(`warmed ${ok}/${urls.length} image variants`);
 }
