@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { proxyImage } from '$lib/images';
+	import { proxyImage, HERO_RATIO } from '$lib/images';
 	import { tourJsonLd, breadcrumbJsonLd, ldJson } from '$lib/seo';
 	import { COUNTRY_LABELS } from '$lib/countries';
 	import { SOURCE_LABELS } from '$lib/sources-meta';
@@ -52,7 +52,7 @@
 <article class="detail">
 	{#if t.image}
 		<img
-			src={proxyImage(t.image, 1080)}
+			src={proxyImage(t.image, 1080, HERO_RATIO)}
 			alt={t.title}
 			width="820"
 			height="461"

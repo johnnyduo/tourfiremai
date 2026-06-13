@@ -77,7 +77,7 @@ export async function refresh(outPath = 'static/data/deals.json'): Promise<Deals
  * cached WebP instead of a slow (~3s) cold conversion. Best-effort, capped.
  */
 async function warmImageCache(images: Array<string | undefined>) {
-	const urls = warmUrls(images, [480, 768]).slice(0, 1200);
+	const urls = warmUrls(images).slice(0, 1400);
 	let ok = 0;
 	await mapLimit(urls, 12, async (u) => {
 		try {

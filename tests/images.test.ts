@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { proxyImage } from '../src/lib/images';
+import { proxyImage, CARD_RATIO } from '../src/lib/images';
 
 describe('proxyImage', () => {
 	it('wraps a url through wsrv.nl with webp output', () => {
@@ -18,5 +18,17 @@ describe('proxyImage', () => {
 		const u = proxyImage('https://x.com/a.jpg', 480);
 		expect(u).toContain('&il');
 		expect(u).toContain('maxage=1y');
+	});
+	it('crops server-side to a top-anchored aspect ratio when ratio given', () => {
+		const u = proxyImage('https://x.com/a.jpg', 480, CARD_RATIO);
+		expect(u).toContain('w=480');
+		expect(u).toContain('h=300'); // 480 / 1.6
+		expect(u).toContain('fit=cover');
+		expect(u).toContain('a=top');
+	});
+	it('does not crop when no ratio is given (full image for social)', () => {
+		const u = proxyImage('https://x.com/a.jpg', 1200);
+		expect(u).not.toContain('fit=cover');
+		expect(u).not.toContain('a=top');
 	});
 });

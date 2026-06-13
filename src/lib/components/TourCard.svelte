@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Tour } from '$lib/types';
-	import { proxyImage } from '$lib/images';
+	import { proxyImage, CARD_RATIO } from '$lib/images';
 	import { SOURCE_LABELS } from '$lib/sources-meta';
 	import FireBadge from './FireBadge.svelte';
 	import PriceTag from './PriceTag.svelte';
@@ -21,8 +21,8 @@
 <a class="card" href={`/tour/${t.slug}`}>
 	<div class="img">
 		<img
-			src={proxyImage(t.image, 480)}
-			srcset={`${proxyImage(t.image, 480)} 480w, ${proxyImage(t.image, 768)} 768w`}
+			src={proxyImage(t.image, 480, CARD_RATIO)}
+			srcset={`${proxyImage(t.image, 480, CARD_RATIO)} 480w, ${proxyImage(t.image, 768, CARD_RATIO)} 768w`}
 			sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 360px"
 			alt={t.title}
 			width="360"
@@ -60,9 +60,8 @@
 	.img img {
 		width: 100%;
 		height: 100%;
+		/* wsrv already crops to the card ratio (a=top); object-fit guards rounding */
 		object-fit: cover;
-		/* tour covers put the destination name/title at the top — crop from the
-		   top so headers aren't decapitated */
 		object-position: top center;
 		display: block;
 	}
