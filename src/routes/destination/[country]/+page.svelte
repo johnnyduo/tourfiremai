@@ -1,6 +1,6 @@
 <script lang="ts">
-	import TourCard from '$lib/components/TourCard.svelte';
-	import { itemListJsonLd } from '$lib/seo';
+	import DealGrid from '$lib/components/DealGrid.svelte';
+	import { itemListJsonLd, ldJson } from '$lib/seo';
 	export let data;
 	const base = 'https://tourfiremai.com';
 </script>
@@ -12,7 +12,7 @@
 		content={`รวมทัวร์${data.label}ราคาถูก โปรไฟไหม้ ออกเดินทางด่วน ที่นั่งใกล้เต็ม จากบริษัททัวร์ชั้นนำ จัดอันดับอัตโนมัติ — ${data.deals.length} ดีล`}
 	/>
 	<link rel="canonical" href={`${base}/destination/${data.country}`} />
-	{@html `<script type="application/ld+json">${JSON.stringify(itemListJsonLd(data.deals, base))}<\/script>`}
+	{@html `<script type="application/ld+json">${ldJson(itemListJsonLd(data.deals.slice(0, 30), base))}<\/script>`}
 </svelte:head>
 
 <section class="hd">
@@ -20,15 +20,9 @@
 	<p>{data.deals.length} ดีล — เรียงตามความร้อนแรง (ใกล้เดินทาง + ราคาดี + ที่นั่งเหลือน้อย)</p>
 </section>
 
-{#if data.deals.length}
-	<div class="grid">
-		{#each data.deals as t (t.id)}
-			<TourCard {t} />
-		{/each}
-	</div>
-{:else}
-	<p class="empty">ยังไม่มีดีลทัวร์{data.label}ในขณะนี้ — กลับมาดูใหม่เร็วๆ นี้</p>
-{/if}
+<DealGrid deals={data.deals}>
+	<p slot="empty" class="empty">ยังไม่มีดีลทัวร์{data.label}ในขณะนี้ — กลับมาดูใหม่เร็วๆ นี้</p>
+</DealGrid>
 
 <style>
 	.hd {

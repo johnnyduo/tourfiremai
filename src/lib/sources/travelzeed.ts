@@ -1,6 +1,7 @@
 import type { Adapter } from './types';
 import type { RawTour, Period } from '../types';
 import { getText } from './http';
+import { metaDescription, splitHighlights } from './extract';
 
 const THAI_MONTHS: Record<string, number> = {
 	'ม.ค.': 1,
@@ -59,11 +60,14 @@ export function parseTravelzeed(html: string, url: string): RawTour | null {
 	}
 	if (!periods.length) return null;
 
+	const description = metaDescription(html);
 	return {
 		source: 'travelzeed',
 		sourceId,
 		sourceUrl: url,
 		title,
+		description,
+		highlights: splitHighlights(description),
 		countryRaw: title,
 		image: image || undefined,
 		airline,

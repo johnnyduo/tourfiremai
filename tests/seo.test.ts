@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { tourJsonLd, itemListJsonLd } from '../src/lib/seo';
+import { tourJsonLd, itemListJsonLd, ldJson } from '../src/lib/seo';
 import type { Tour } from '../src/lib/types';
 
 const t = {
@@ -27,5 +27,15 @@ describe('seo', () => {
 	});
 	it('itemListJsonLd lists items', () => {
 		expect(itemListJsonLd([t], 'https://tourfiremai.com')['@type']).toBe('ItemList');
+	});
+
+	it('ldJson escapes </script> so scraped titles cannot break out (XSS)', () => {
+		const evil = { name: 'ทัวร์ </script><script>alert(1)</script>' };
+		const out = ldJson(evil);
+		expect(out).not.toContain('</script>');
+		expect(out).not.toContain('<script>');
+		expect(out).toContain('\\u003c');
+		// still valid JSON that round-trips to the original string
+		expect(JSON.parse(out).name).toBe('ทัวร์ </script><script>alert(1)</script>');
 	});
 });

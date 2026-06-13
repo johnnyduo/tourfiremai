@@ -1,6 +1,7 @@
 import type { Adapter } from './types';
 import type { RawTour, Period } from '../types';
 import { getText } from './http';
+import { metaDescription, splitHighlights } from './extract';
 
 /**
  * Unithai (ยูนิไทยทราเวล). Tour data lives on
@@ -39,11 +40,14 @@ export function parseUnithai(detail: string, book: string, code: string): RawTou
 	// The first "เริ่ม ฿ N" on the page is this tour's own lead price.
 	const periods: Period[] = [{ departISO: new Date().toISOString(), price: prices[0] }];
 
+	const description = metaDescription(detail);
 	return {
 		source: 'unithai',
 		sourceId: code,
 		sourceUrl: `https://www.unithaitravel.com/th/trip_detail2.php?route_id=${code}`,
 		title,
+		description,
+		highlights: splitHighlights(description),
 		countryRaw: title,
 		image: image ? (image.startsWith('http') ? image : `https://${image}`) : undefined,
 		days,

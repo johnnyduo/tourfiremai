@@ -16,8 +16,8 @@ describe('parseNidnoi', () => {
 		expect(t?.periods[0].departISO).toMatch(/^\d{4}-\d{2}-\d{2}/);
 		expect(t?.periods[0].price).toBeGreaterThan(0);
 	});
-	it('flags soldout when seats <= 0', () => {
-		const sold = t?.periods.find((p) => p.soldOut);
-		expect(sold).toBeTruthy();
+	it('does not invent seat counts when groupsize is 0 (unpublished)', () => {
+		// fixture periods all have groupsize:0, so seats should be undefined, not a misleading 0
+		expect(t?.periods.every((p) => p.seats === undefined)).toBe(true);
 	});
 });

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { proxyImage } from '$lib/images';
-	import { tourJsonLd } from '$lib/seo';
+	import { tourJsonLd, ldJson } from '$lib/seo';
 	import { COUNTRY_LABELS } from '$lib/countries';
 	import { SOURCE_LABELS } from '$lib/sources-meta';
 	import PriceTag from '$lib/components/PriceTag.svelte';
@@ -9,6 +9,14 @@
 	export let data;
 	$: t = data.tour;
 	const base = 'https://tourfiremai.com';
+
+	// smallest seat count across periods that are still available (>0)
+	$: seatsLeft = (() => {
+		const avail = t.periods
+			.filter((p) => !p.soldOut && p.seats != null && p.seats > 0)
+			.map((p) => p.seats as number);
+		return avail.length ? Math.min(...avail) : null;
+	})();
 </script>
 
 <svelte:head>
@@ -21,7 +29,7 @@
 	<meta property="og:title" content={t.title} />
 	<meta property="og:type" content="product" />
 	{#if t.image}<meta property="og:image" content={proxyImage(t.image, 1200)} />{/if}
-	{@html `<script type="application/ld+json">${JSON.stringify(tourJsonLd(t, base))}<\/script>`}
+	{@html `<script type="application/ld+json">${ldJson(tourJsonLd(t, base))}<\/script>`}
 </svelte:head>
 
 <nav class="crumbs">
@@ -30,7 +38,16 @@
 </nav>
 
 <article class="detail">
-	{#if t.image}<img src={proxyImage(t.image, 1080)} alt={t.title} />{/if}
+	{#if t.image}
+		<img
+			src={proxyImage(t.image, 1080)}
+			alt={t.title}
+			width="820"
+			height="461"
+			fetchpriority="high"
+			decoding="async"
+		/>
+	{/if}
 
 	<div class="head">
 		<CountryChip country={t.country} />
@@ -45,6 +62,24 @@
 	</div>
 
 	<PriceTag price={t.priceFrom} discount={t.discountPct} />
+
+	{#if seatsLeft != null}
+		<p class="seatline" class:urgent={seatsLeft <= 5}>
+			🎟️ ที่นั่งเหลือน้อยที่สุด <strong>{seatsLeft}</strong> ที่ (ในรอบที่ยังว่าง)
+		</p>
+	{/if}
+
+	{#if t.description}
+		<h2>รายละเอียดทัวร์</h2>
+		<p class="desc">{t.description}</p>
+	{/if}
+
+	{#if t.highlights?.length}
+		<h2>ไฮไลท์</h2>
+		<ul class="highlights">
+			{#each t.highlights as h}<li>{h}</li>{/each}
+		</ul>
+	{/if}
 
 	<h2>วันเดินทางและราคา</h2>
 	<ul class="periods">
@@ -147,5 +182,23 @@
 		color: var(--muted);
 		font-size: 0.8rem;
 		margin-top: 14px;
+	}
+	.seatline {
+		margin: 14px 0 0;
+		font-weight: 600;
+	}
+	.seatline.urgent {
+		color: var(--red);
+	}
+	.desc {
+		color: var(--ink);
+		line-height: 1.7;
+	}
+	.highlights {
+		margin: 0 0 8px;
+		padding-left: 20px;
+	}
+	.highlights li {
+		margin-bottom: 6px;
 	}
 </style>

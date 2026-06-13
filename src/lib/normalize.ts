@@ -1,13 +1,16 @@
 import type { RawTour, Tour } from './types';
 import { normalizeCountry } from './countries';
 import { urgencyScore, dealScore, fireScore } from './score';
+import { synthDescription } from './sources/extract';
+import { SOURCE_LABELS } from './sources-meta';
 
 const slugify = (s: string) =>
 	s
 		.toLowerCase()
 		.replace(/[^a-z0-9ก-๙]+/gi, '-')
-		.replace(/^-+|-+$/g, '')
-		.slice(0, 60);
+		.replace(/-+/g, '-')
+		.slice(0, 60)
+		.replace(/^-+|-+$/g, '');
 
 export function toTour(raw: RawTour, now = new Date(), countryMedian?: number): Tour {
 	const country = normalizeCountry(raw.countryRaw || raw.title);
@@ -32,8 +35,21 @@ export function toTour(raw: RawTour, now = new Date(), countryMedian?: number): 
 		undefined;
 	const u = urgencyScore({ nextDepartISO: next?.departISO, minSeats }, now);
 	const d = dealScore({ priceFrom, countryMedian, discountPct });
+	const description =
+		raw.description && raw.description.length >= 30
+			? raw.description
+			: synthDescription({
+					title: raw.title,
+					country,
+					days: raw.days,
+					nights: raw.nights,
+					airline: raw.airline,
+					priceFrom,
+					operator: SOURCE_LABELS[raw.source]
+				});
 	return {
 		...raw,
+		description,
 		id: `${raw.source}-${raw.sourceId}`,
 		slug: `${country}-${slugify(raw.title)}-${raw.sourceId}`,
 		country,

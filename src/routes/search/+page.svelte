@@ -1,5 +1,5 @@
 <script lang="ts">
-	import TourCard from '$lib/components/TourCard.svelte';
+	import DealGrid from '$lib/components/DealGrid.svelte';
 	import { COUNTRY_LABELS } from '$lib/countries';
 	import type { DealsFile } from '$lib/data';
 	import type { Tour } from '$lib/types';
@@ -57,11 +57,8 @@
 	<p class="count">{filtered.length} ดีล</p>
 </section>
 
-<div class="grid">
-	{#each filtered as t (t.id)}
-		<TourCard {t} />
-	{/each}
-</div>
+<DealGrid deals={filtered} />
+
 
 <style>
 	.hd {

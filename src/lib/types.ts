@@ -14,6 +14,8 @@ export interface RawTour {
 	sourceId: string;
 	sourceUrl: string;
 	title: string;
+	description?: string;
+	highlights?: string[];
 	countryRaw?: string;
 	city?: string;
 	image?: string;

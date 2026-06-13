@@ -5,7 +5,9 @@ export function tourJsonLd(t: Tour, base: string) {
 		'@context': 'https://schema.org',
 		'@type': 'TouristTrip',
 		name: t.title,
+		description: t.description,
 		url: `${base}/tour/${t.slug}`,
+		image: t.image,
 		touristType: 'leisure',
 		offers: {
 			'@type': 'Offer',
@@ -44,4 +46,13 @@ export function faqJsonLd(items: Array<{ q: string; a: string }>) {
 			acceptedAnswer: { '@type': 'Answer', text: it.a }
 		}))
 	};
+}
+
+/**
+ * Serialize a JSON-LD object safely for embedding in a <script> tag.
+ * Escapes `<` so a scraped string containing `</script>` cannot break out
+ * of the script element (XSS). Use with {@html `<script ...>${ldJson(obj)}</script>`}.
+ */
+export function ldJson(obj: unknown): string {
+	return JSON.stringify(obj).replace(/</g, '\\u003c');
 }

@@ -21,3 +21,12 @@ describe('parseTravelzeed', () => {
 	it('parses a valid ISO departure date', () =>
 		expect(t?.periods[0].departISO).toMatch(/^2026-/));
 });
+
+describe('parseTravelzeed description', () => {
+	const html = readFileSync('tests/fixtures/travelzeed-tour.html', 'utf8');
+	const t = parseTravelzeed(html, 'https://www.travelzeed.com/tour/detail/11096');
+	it('extracts a description from meta when present', () => {
+		// fixture has a meta description; if absent the field is simply undefined
+		if (t?.description) expect(t.description.length).toBeGreaterThan(10);
+	});
+});

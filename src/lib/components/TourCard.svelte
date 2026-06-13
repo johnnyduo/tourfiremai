@@ -6,6 +6,8 @@
 	import PriceTag from './PriceTag.svelte';
 	import CountryChip from './CountryChip.svelte';
 	export let t: Tour;
+	/** eager-load the first row (above the fold) for fast LCP, lazy-load the rest */
+	export let eager = false;
 
 	$: lowSeat = t.periods.find((p) => p.seats != null && p.seats > 0 && p.seats <= 5);
 	$: reason = [
@@ -18,7 +20,17 @@
 
 <a class="card" href={`/tour/${t.slug}`}>
 	<div class="img">
-		<img loading="lazy" src={proxyImage(t.image, 640)} alt={t.title} />
+		<img
+			src={proxyImage(t.image, 480)}
+			srcset={`${proxyImage(t.image, 480)} 480w, ${proxyImage(t.image, 768)} 768w`}
+			sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 360px"
+			alt={t.title}
+			width="360"
+			height="225"
+			loading={eager ? 'eager' : 'lazy'}
+			fetchpriority={eager ? 'high' : 'auto'}
+			decoding="async"
+		/>
 		<div class="fb"><FireBadge score={t.fireScore} {reason} /></div>
 	</div>
 	<div class="body">

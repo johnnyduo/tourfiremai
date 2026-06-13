@@ -1,6 +1,6 @@
 <script lang="ts">
-	import TourCard from '$lib/components/TourCard.svelte';
-	import { itemListJsonLd, faqJsonLd } from '$lib/seo';
+	import DealGrid from '$lib/components/DealGrid.svelte';
+	import { itemListJsonLd, faqJsonLd, ldJson } from '$lib/seo';
 	export let data;
 	const base = 'https://tourfiremai.com';
 
@@ -30,8 +30,8 @@
 	<meta property="og:title" content="TourFireMai — รวมทัวร์ไฟไหม้ ราคาถูกที่สุดในไทย" />
 	<meta property="og:description" content="ดีลทัวร์ที่ร้อนแรงที่สุด อัปเดตทุกวัน" />
 	<meta property="og:type" content="website" />
-	{@html `<script type="application/ld+json">${JSON.stringify(itemListJsonLd(data.deals, base))}<\/script>`}
-	{@html `<script type="application/ld+json">${JSON.stringify(faqJsonLd(faqs))}<\/script>`}
+	{@html `<script type="application/ld+json">${ldJson(itemListJsonLd(data.deals.slice(0, 30), base))}<\/script>`}
+	{@html `<script type="application/ld+json">${ldJson(faqJsonLd(faqs))}<\/script>`}
 </svelte:head>
 
 <section class="hero">
@@ -42,15 +42,9 @@
 	</p>
 </section>
 
-{#if data.deals.length}
-	<div class="grid">
-		{#each data.deals as t (t.id)}
-			<TourCard {t} />
-		{/each}
-	</div>
-{:else}
-	<p class="empty">กำลังรวบรวมดีลทัวร์ล่าสุด โปรดกลับมาใหม่อีกครั้ง 🔥</p>
-{/if}
+<DealGrid deals={data.deals}>
+	<p slot="empty" class="empty">กำลังรวบรวมดีลทัวร์ล่าสุด โปรดกลับมาใหม่อีกครั้ง 🔥</p>
+</DealGrid>
 
 <section class="faq">
 	<h2>คำถามที่พบบ่อย</h2>

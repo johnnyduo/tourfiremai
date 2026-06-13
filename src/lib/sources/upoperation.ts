@@ -1,6 +1,7 @@
 import type { Adapter } from './types';
 import type { RawTour, Period } from '../types';
 import { getText } from './http';
+import { metaDescription, splitHighlights } from './extract';
 
 export function discoverUpFromHtml(html: string): string[] {
 	const set = new Set<string>();
@@ -30,11 +31,14 @@ export function parseUpOperation(html: string, url: string): RawTour | null {
 
 	const periods: Period[] = [{ departISO: new Date().toISOString(), price: Math.min(...prices) }];
 
+	const description = metaDescription(html);
 	return {
 		source: 'uphol',
 		sourceId,
 		sourceUrl: url,
 		title,
+		description,
+		highlights: splitHighlights(description),
 		countryRaw: title,
 		image: image || undefined,
 		days,
