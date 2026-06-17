@@ -184,9 +184,10 @@ const promos: BirthdayPromo[] = [
 ];
 
 describe('currentMonth', () => {
-  it('returns 1-based month', () => {
-    expect(currentMonth(new Date('2026-06-17T00:00:00Z'))).toBe(6);
-    expect(currentMonth(new Date('2026-01-02T00:00:00Z'))).toBe(1);
+  it('returns 1-based local month', () => {
+    // local-time constructor → deterministic regardless of runner TZ
+    expect(currentMonth(new Date(2026, 5, 17))).toBe(6);
+    expect(currentMonth(new Date(2026, 0, 2))).toBe(1);
   });
 });
 
@@ -239,7 +240,7 @@ import type { BirthdayPromo, PromoCategory } from './types';
 import { CATEGORY_ORDER, CATEGORY_LABELS } from './types';
 
 export function currentMonth(now: Date): number {
-  return now.getUTCMonth() + 1;
+  return now.getMonth() + 1; // local month — matches the user's "today"
 }
 
 export function promosForBirthMonth(promos: BirthdayPromo[], month: number): BirthdayPromo[] {
