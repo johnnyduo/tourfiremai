@@ -1,5 +1,19 @@
 import { describe, it, expect } from 'vitest';
-import { brandLogo, letterMark, hashString } from '../src/lib/birthday/logo';
+import { brandLogo, productImage, letterMark, hashString } from '../src/lib/birthday/logo';
+
+describe('productImage', () => {
+	it('returns undefined without an image', () => {
+		expect(productImage(undefined)).toBeUndefined();
+		expect(productImage('')).toBeUndefined();
+	});
+	it('proxies and cover-crops the image through wsrv', () => {
+		const url = productImage('https://x.test/a.jpg', 96);
+		expect(url).toContain('https://wsrv.nl/?url=');
+		expect(url).toContain(encodeURIComponent('https://x.test/a.jpg'));
+		expect(url).toContain('fit=cover');
+		expect(url).toContain('output=webp');
+	});
+});
 
 describe('brandLogo', () => {
 	it('returns undefined without a domain (caller uses letter-mark)', () => {

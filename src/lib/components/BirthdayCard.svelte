@@ -8,7 +8,7 @@
 
 <article class="card bday">
 	<div class="top">
-		<BrandLogo brand={promo.brand} domain={promo.domain} size={44} />
+		<BrandLogo brand={promo.brand} domain={promo.domain} image={promo.image} size={44} />
 		<h3>{promo.brand}</h3>
 		<span class="chip">{channelText}</span>
 	</div>

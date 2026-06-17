@@ -8,6 +8,19 @@
  */
 
 /**
+ * Proxied product image URL for a brand, square-cropped through wsrv.nl (cover, so it
+ * fills the thumbnail). Returns `undefined` when no image is set. Use as the preferred
+ * card image; fall back to `brandLogo` then `letterMark` on error.
+ */
+export function productImage(image: string | undefined, size = 96): string | undefined {
+	if (!image) return undefined;
+	return (
+		`https://wsrv.nl/?url=${encodeURIComponent(image)}` +
+		`&w=${size}&h=${size}&fit=cover&a=attention&output=webp&we=1&il&n=-1&maxage=30d`
+	);
+}
+
+/**
  * Proxied Clearbit logo URL for a brand domain, or `undefined` when no domain is set
  * (the caller should render a letter-mark instead).
  */
