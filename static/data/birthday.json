@@ -1,0 +1,23 @@
+{
+	"generatedAt": "2026-06-17",
+	"count": 2,
+	"promos": [
+		{
+			"id": "starbucks-1",
+			"brand": "Starbucks",
+			"category": "drinks",
+			"channel": "app",
+			"condition": "ระดับ Gold",
+			"perk": "รับฟรี! เครื่องดื่ม 1 แก้ว และเบเกอรี่ 1 ชิ้น (ไม่เกิน 150.-)",
+			"evergreen": true
+		},
+		{
+			"id": "potato-corner-1",
+			"brand": "Potato Corner",
+			"category": "food",
+			"channel": "line",
+			"perk": "รับฟรี! เฟรนช์ฟรายส์ไซส์ใหญ่",
+			"evergreen": true
+		}
+	]
+}
