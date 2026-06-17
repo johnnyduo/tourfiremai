@@ -21,7 +21,6 @@ export interface BirthdayPromo {
 	validUntilISO?: string;
 	url?: string;
 	note?: string;
-	domain?: string; // brand domain for logo lookup, e.g. "starbucks.co.th"
 }
 
 export interface BirthdayFile {
