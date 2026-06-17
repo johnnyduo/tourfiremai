@@ -1,13 +1,20 @@
 <script lang="ts">
+	import { page } from '$app/stores';
+	import { SITE } from '$lib/site';
 	import { COUNTRY_LABELS } from '$lib/countries';
 	import ThemeToggle from './ThemeToggle.svelte';
 	const navCountries = ['china', 'japan', 'korea', 'vietnam', 'taiwan', 'hongkong'];
+	$: path = $page.url.pathname;
 </script>
 
 <header>
 	<div class="container bar">
-		<a class="brand" href="/">TourFireMai <span>🔥</span></a>
+		<a class="brand" href="/">{SITE.name} <span>🔥</span></a>
 		<nav>
+			<a href="/" class="section" class:active={path === '/'}>🔥 ทัวร์ไฟไหม้</a>
+			<a href="/birthday" class="section" class:active={path.startsWith('/birthday')}
+				>🎂 โปรเดือนเกิด</a
+			>
 			{#each navCountries as c}
 				<a href={`/destination/${c}`}>{COUNTRY_LABELS[c]}</a>
 			{/each}
@@ -55,6 +62,12 @@
 		white-space: nowrap;
 	}
 	nav a:hover {
+		color: var(--fire2);
+	}
+	.section {
+		color: var(--ink);
+	}
+	.section.active {
 		color: var(--fire2);
 	}
 	.search-link {

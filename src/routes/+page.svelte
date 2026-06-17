@@ -49,6 +49,11 @@
 	</p>
 </section>
 
+<a class="promo-strip card" href="/birthday">
+	<span>🎂 <strong>โปรเดือนเกิด</strong> — รวมสิทธิ์วันเกิดจากแบรนด์ดังทั่วไทย เครื่องดื่ม/ของกินฟรี</span>
+	<span class="go">ดูเลย →</span>
+</a>
+
 <DealGrid deals={data.deals}>
 	<p slot="empty" class="empty">กำลังรวบรวมดีลทัวร์ล่าสุด โปรดกลับมาใหม่อีกครั้ง 🔥</p>
 </DealGrid>
@@ -81,6 +86,22 @@
 		padding: 60px 0;
 		text-align: center;
 		color: var(--muted);
+	}
+	.promo-strip {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 14px;
+		padding: 14px 20px;
+		margin: 0 0 24px;
+		text-decoration: none;
+		font-weight: 600;
+		border-left: 4px solid var(--fire3);
+	}
+	.promo-strip .go {
+		flex: 0 0 auto;
+		color: var(--fire2);
+		font-weight: 700;
 	}
 	.faq {
 		margin-top: 56px;

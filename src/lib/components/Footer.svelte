@@ -1,17 +1,21 @@
 <script lang="ts">
 	import { SOURCE_LABELS } from '$lib/sources-meta';
+	import { SITE } from '$lib/site';
 </script>
 
 <footer>
 	<div class="container">
-		<p class="big fire-text">TourFireMai 🔥</p>
+		<p class="big fire-text">{SITE.name} 🔥</p>
 		<p>
-			รวมทัวร์ไฟไหม้ ทัวร์ราคาถูก ที่นั่งเหลือน้อย จากบริษัททัวร์ชั้นนำของไทย —
-			อัปเดตอัตโนมัติทุกวัน เราเป็นเพียงผู้รวบรวมข้อมูลและลิงก์ไปยังผู้ขายโดยตรง
-			การจองและชำระเงินทำกับบริษัททัวร์ต้นทาง
+			{SITE.name} รวมโปรโมชันเด็ดจากทั่วไทย — 🔥 ทัวร์ไฟไหม้ ทัวร์ราคาถูกที่นั่งเหลือน้อย
+			และ 🎂 โปรเดือนเกิด สิทธิ์วันเกิดจากแบรนด์ดัง อัปเดตทุกวัน
+			เราเป็นเพียงผู้รวบรวมข้อมูลและลิงก์ไปยังผู้ขายโดยตรง การจองและรับสิทธิ์ทำกับร้านค้าต้นทาง
 		</p>
-		<p class="sources">แหล่งข้อมูล: {Object.values(SOURCE_LABELS).join(' · ')}</p>
-		<p class="fine">© {new Date().getFullYear()} TourFireMai · ราคาและที่นั่งอาจเปลี่ยนแปลง โปรดยืนยันกับผู้ขาย</p>
+		<p class="sources">แหล่งข้อมูลทัวร์: {Object.values(SOURCE_LABELS).join(' · ')}</p>
+		<p class="fine">
+			© {new Date().getFullYear()}
+			{SITE.name} · ราคา ที่นั่ง และสิทธิ์โปรโมชันอาจเปลี่ยนแปลง โปรดยืนยันกับร้านค้า
+		</p>
 	</div>
 </footer>
 

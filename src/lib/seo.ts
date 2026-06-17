@@ -1,5 +1,6 @@
 import type { Tour } from './types';
 import { SOURCE_LABELS } from './sources-meta';
+import { SITE } from './site';
 
 export function tourJsonLd(t: Tour, base: string) {
 	return {
@@ -55,11 +56,11 @@ export function organizationJsonLd(base: string) {
 	return {
 		'@context': 'https://schema.org',
 		'@type': 'Organization',
-		name: 'TourFireMai',
+		name: SITE.name,
 		url: base,
 		logo: `${base}/icon-512.png`,
 		description:
-			'รวมทัวร์ไฟไหม้ ทัวร์ราคาถูก ที่นั่งเหลือน้อย จากบริษัททัวร์ชั้นนำของไทย จัดอันดับอัตโนมัติ',
+			'TionPromo รวมโปรโมชันทั่วไทย — ทัวร์ไฟไหม้ ทัวร์ราคาถูกที่นั่งเหลือน้อย และโปรเดือนเกิด สิทธิ์วันเกิดจากแบรนด์ดัง',
 		sameAs: []
 	};
 }
@@ -68,7 +69,7 @@ export function webSiteJsonLd(base: string) {
 	return {
 		'@context': 'https://schema.org',
 		'@type': 'WebSite',
-		name: 'TourFireMai',
+		name: SITE.name,
 		url: base,
 		inLanguage: 'th-TH',
 		potentialAction: {
