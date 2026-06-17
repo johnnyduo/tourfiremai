@@ -1,0 +1,371 @@
+{
+  "summary": "Deep research harness — fan-out web searches, fetch sources, adversarially verify claims, synthesize a cited report.",
+  "agentCount": 106,
+  "logs": [
+    "Q: Thailand brand birthday-month promotions (\"โปรเดือนเกิด\" / birthday perks) avail…",
+    "Decomposed into 5 angles: broad/primary aggregated promo sheets, food & beverage chains birthday rewards, beauty/cosmetic & retail membership perks, bank / credit-card birthday cashback campaigns, entertainment, theme parks & evergreen vs calendar-month",
+    "bank / credit-card birthday cashback campaigns: 6 results",
+    "broad/primary aggregated promo sheets: 6 results",
+    "food & beverage chains birthday rewards: 6 results",
+    "food & beverage chains birthday rewards: 4 novel (2 filtered)",
+    "entertainment, theme parks & evergreen vs calendar-month: 6 results",
+    "entertainment, theme parks & evergreen vs calendar-month: 4 novel (2 filtered)",
+    "beauty/cosmetic & retail membership perks: 6 results",
+    "beauty/cosmetic & retail membership perks: 4 novel (2 filtered)",
+    "Fetched 24 sources → 65 claims → verifying top 25",
+    "\"Sephora Thailand's birthday gift requires no purch…\": 3-0 ✓",
+    "\"The Sephora Thailand birthday gift is only redeema…\": 3-0 ✓",
+    "\"American Express The Platinum Card (Thailand) give…\": 3-0 ✓",
+    "\"Sephora Thailand's Beauty Pass program offers birt…\": 3-0 ✓",
+    "\"The Platinum Birthday bonus applies to the entire …\": 3-0 ✓",
+    "\"Eligibility requires being an M GEN member who sig…\": 3-0 ✓",
+    "\"Major Cineplex M GEN (M GENERATION) club members r…\": 3-0 ✓",
+    "\"Starbucks Thailand offers a birthday-month perk of…\": 2-1 ✓",
+    "\"Burger King Thailand gives a free regular box of F…\": 2-1 ✓",
+    "\"CHAGEE Thailand provides one free drink of any men…\": 0-3 ✗",
+    "\"Dairy Queen Thailand offers a birthday-month Blizz…\": 0-3 ✗",
+    "\"CHAGEE Thailand offers members a free beverage (1 …\": 3-0 ✓",
+    "\"Potato Corner gives free fries during the customer…\": 3-0 ✓",
+    "\"The CHAGEE birthday free-drink perk requires membe…\": 2-1 ✓",
+    "\"Karun Thai Tea offers a birthday-month perk for it…\": 3-0 ✓",
+    "\"Oriental Princess offers a birthday-month promotio…\": 3-0 ✓",
+    "\"Siam Amazing Park (สยามอะเมซิ่งพาร์ค) offers free …\": 3-0 ✓",
+    "\"Dream World (ดรีมเวิลด์) offers free unlimited rid…\": 3-0 ✓",
+    "\"Siam Amazing Park (Suan Siam / สวนสยาม) offers a b…\": 3-0 ✓",
+    "\"The Siam Amazing Park birthday perk is redeemed in…\": 3-0 ✓",
+    "\"Sukishi/Suki Teenoi (สุกี้ตี๋น้อย) offers a free m…\": 3-0 ✓",
+    "\"Starbucks Thailand gives Gold members a free drink…\": 3-0 ✓",
+    "\"Dairy Queen offers a Blizzard XL for 79 baht (norm…\": 3-0 ✓",
+    "\"The Alley gives members a free menu item (any drin…\": 3-0 ✓",
+    "\"Doitung Café offers a birthday-month perk of a fre…\": 1-2 ✗",
+    "Verify done: 25 claims → 22 confirmed, 3 killed"
+  ],
+  "result": {
+    "question": "Thailand brand birthday-month promotions (\"โปรเดือนเกิด\" / birthday perks) available in 2026. For each brand, find: brand name, category (drinks/dessert, food, cosmetic, entertainment, shopping, bank/credit-card, other), the redemption channel (LINE OA, brand app, web signup, in-store, specific credit card e.g. UOB/Aeon, or event), any condition or membership tier required (e.g. \"ระดับ Gold\", \"เคยซื้อ\", minimum spend), and the exact birthday perk/reward in Thai (free drink, free dessert, discount %, coupon value in baht, cashback). Cover the ~50 brands typically on Thai \"โปรเดือนเกิด มิถุนายน\" promo sheets (Starbucks, Swensen's, KOI Thé, Bearhouse, CHAGEE, Coco, DoiTung, Karun, La Lune, Potato Corner, Burger King, McDonald's, Haidilao, Sukishi, Shake Shack, Dairy Queen, NARS, L'OCCITANE, Sephora, Oriental Princess, Yves Rocher, Donki, Major Cineplex, Dream World, Siam Park) AND expand to 100+ by finding additional well-attested Thai birthday-promo brands. Mark whether each perk is evergreen (valid in your birth month year-round) or tied to a specific calendar-month campaign. Note membership tiers and whether it needs prior purchase. Prefer well-attested perks; flag uncertain ones.",
+    "summary": "Thai brands run a wide spectrum of birthday-month (\"โปรเดือนเกิด\") perks in 2026, dominated by loyalty-membership models redeemed via brand app or LINE OA rather than open in-store offers. The strongest-attested patterns are: free drink + food/cake at Starbucks (Gold tier, up to 150 baht), free fries at Burger King and Potato Corner (size scales by tier), free single drinks at bubble-tea/tea chains (CHAGEE, Karun, The Alley) gated to a mid-or-higher membership tier, a 35% store-wide birthday discount at cosmetics chain Oriental Princess, free movie tickets via Major Cineplex M GEN, and free theme-park entry at Siam Amazing Park (Suan Siam) and Dream World. Sephora Beauty Pass and Amex Platinum represent the cosmetics-retail and premium-credit-card categories. Most food/drink perks are evergreen (valid in your birth month every year) but membership- and tier-gated, frequently requiring prior accumulated spend; a few (Dream World free entry) are tied to the actual birthday date. Of ~50+ brands targeted, only 22 brand-level claims survived adversarial verification — the synthesized set below covers roughly 13 distinct brands with high confidence; the bulk of the \"~50 brand promo sheet\" could not be independently verified to primary/strong sources.",
+    "findings": [
+      {
+        "claim": "Starbucks Thailand gives Gold-tier Rewards members a free handcrafted drink (any size, 2 free customizations) plus a food/cake item worth up to 150 baht during the birth month, loaded on day 1, redeemed in-store. Gold requires ~300 Stars in 12 months.",
+        "confidence": "high",
+        "sources": [
+          "https://rewards.starbucks.co.th/faq",
+          "https://www.facebook.com/shobproth/posts/1348762237280641/",
+          "https://food.trueid.net/detail/R560yAVBAnOm"
+        ],
+        "evidence": "Official Starbucks Rewards TH FAQ: 'one Starbucks handcrafted drink - any size (with 2 free customizations) and Food of your choice (with maximum 150 Baht)' loaded first day of birth month, in-store only. Confirmed Gold-level benefit; Gold = 300 Stars/12 months. Merges claims [7] and [19].",
+        "vote": "3-0 / 2-1"
+      },
+      {
+        "claim": "Sephora Thailand's Beauty Pass program gives birthday gifts across all three tiers (White entry, Black at 7,500 THB/365 days, Gold at 37,500 THB/365 days); the gift needs no purchase in-store (present virtual Beauty Pass in app) or can be added to any online purchase, redeemable only during the member's birthday month.",
+        "confidence": "high",
+        "sources": [
+          "https://sephorath.zendesk.com/hc/en-us/articles/55504465587225-How-can-I-redeem-my-Birthday-Gift-White-Black-Gold-Members"
+        ],
+        "evidence": "Official Sephora TH Zendesk: 'Birthday gifts are only redeemable during your birthday month, either online or in-store'; 'redeemable in-store with no purchase necessary'. White-member birthday gift starts 1 April 2026. Category: cosmetic. Merges claims [0], [1], [2].",
+        "vote": "3-0"
+      },
+      {
+        "claim": "American Express The Platinum Card (Thailand) gives 3X Membership Rewards points (1 regular + 2 extra) per 25 Baht spent during the cardholder's entire birth month in 2026 (e.g. 1-31 Jan for Jan birthdays), up to 50,000 Baht spend, with no enrollment required.",
+        "confidence": "high",
+        "sources": [
+          "https://www.americanexpress.com/th/en/charge-cards/thai-platinum-card/"
+        ],
+        "evidence": "Official Amex TH page: '3X Membership Rewards points (1 regular point + 2 EXTRA points) from every Baht 25 spent with your Platinum Card in your birth month ... up to Baht 50,000 ... No enrollment required.' Category: bank/credit-card; premium-tier, high income requirement. Merges claims [3] and [4].",
+        "vote": "3-0"
+      },
+      {
+        "claim": "Major Cineplex M GEN (M GENERATION) members get a free movie ticket for 1 seat (regular 2D digital) redeemable Sunday-Saturday of their birth week; requires having signed up for or renewed the M GEN card at least 2 weeks before the birthday. M GEN First Class gets 2 seats during the birth month.",
+        "confidence": "high",
+        "sources": [
+          "https://www.majorcineplex.com/promotion/m-gen-happy-birthday",
+          "https://www.majorcineplex.com/promotion/mgen-next-bd"
+        ],
+        "evidence": "Official: 'สิทธิ์ชมภาพยนตร์ฟรี 1 ที่นั่ง / สมาชิก' redeemable 'วันอาทิตย์ จนถึงวันเสาร์ในสัปดาห์เกิด'; 'สำหรับสมาชิกที่สมัครบัตรใหม่ หรือ ต่ออายุบัตร ก่อนวันเกิด 2 สัปดาห์.' Active 2026 cycle confirmed. Category: entertainment; birth-week tied. Merges claims [5] and [6].",
+        "vote": "3-0"
+      },
+      {
+        "claim": "Burger King Thailand gives a free regular box of French fries in the birthday month, redeemed via the Burger King app with membership; reward scales by tier (Gold = medium fries, Diamond = meal set). Valid 1 Jan - 31 Dec 2026.",
+        "confidence": "high",
+        "sources": [
+          "https://food.trueid.net/detail/R560yAVBAnOm",
+          "https://salehere.co.th/burger-king"
+        ],
+        "evidence": "TrueID: 'สมัครสมาชิกผ่านแอพ Burger King รับฟรี เฟรนช์ฟรายส์ขนาดปกติ 1 กล่อง ภายในเดือนเกิด.' SaleHere confirms Jan-Dec 2026 window. Category: food; brand app. Claim [8].",
+        "vote": "2-1"
+      },
+      {
+        "claim": "Potato Corner (TOTO Club) gives free fries during the birth month, size scaling by tier: Baby Toto = Large, Teenager Toto = Mega, Super Boss Toto = Giga. Free signup via LINE OA; coupon collected in @potatocornerth LINE menu, usable once per year during birth month, valid 1 hour after claiming, all branches except airports; truffle flavor +10 baht.",
+        "confidence": "high",
+        "sources": [
+          "https://food.trueid.net/detail/26l2Kkv3POMp",
+          "https://salehere.co.th/potato-corner"
+        ],
+        "evidence": "Tier→size mapping confirmed by SaleHere and official @potatocornerth TikTok (video 7459270262756756744). Category: food; LINE OA. Claim [9].",
+        "vote": "3-0"
+      },
+      {
+        "claim": "CHAGEE Thailand gives members a free beverage (1 cup, value up to ~180 baht) during the birth month, but only at CHA Explorer tier or higher (excludes base CHA Seeker/Friend tier); redeemed via LINE/app at any branch, with birthday info set in advance (~1 month before).",
+        "confidence": "high",
+        "sources": [
+          "https://salehere.co.th/chagee/promotions/member-birthday-free-beverage",
+          "https://www.lemon8-app.com/@iam.jeun/7594094737255121416"
+        ],
+        "evidence": "SaleHere: 'Chagee สมาชิกรับฟรี! เครื่องดื่ม 1 แก้ว ในเดือนเกิด เมื่อเป็นสมาชิกในระดับ CHA Explorer ขึ้นไป.' 2026-dated Lemon8 confirms tiered structure (Explorer/Pioneer/Master qualify). Category: drinks. Merges claims [10] and [11].",
+        "vote": "3-0 / 2-1"
+      },
+      {
+        "claim": "Karun Thai Tea Membership members get one free 16oz beverage (Traditional Thai Tea or Black Tea) during their birth month; condition is showing national ID to verify birth month. Evergreen yearly perk.",
+        "confidence": "high",
+        "sources": [
+          "https://salehere.co.th/karun-thai-tea/promotions/membership-free-beverage"
+        ],
+        "evidence": "SaleHere: 'Karun Membership รับเครื่องดื่ม ขนาด 16oz ฟรี 1 แก้ว.' Confirmed by 2026 Lemon8 post and Karun's own Facebook. Category: drinks. Claim [12].",
+        "vote": "3-0"
+      },
+      {
+        "claim": "The Alley (Deer Member) gives members a free drink (any drink) worth up to 100 baht during the birth month, plus a snack per some sources; sign up via LINE OA @thealleythailand, redeem in-store with national ID, valid only in birth month.",
+        "confidence": "high",
+        "sources": [
+          "https://www.lemon8-app.com/@kinthiao519/7603337439226102279?region=us",
+          "https://salehere.co.th/the-alley"
+        ],
+        "evidence": "Lemon8 + TikTok (@liq.searcher) + The Alley official FB confirm 'Deer Member' birthday free beverage up to 100 baht via LINE OA. Category: drinks. Claim [21].",
+        "vote": "3-0"
+      },
+      {
+        "claim": "Oriental Princess (Thai cosmetics) gives members an immediate 35% store-wide discount during the birth month (usable in birth month or up to 1 month after), one right per phone number, redeemed in-store; spend cap by tier (White ~5,000 THB, Gold/Platinum ~8,000 THB).",
+        "confidence": "high",
+        "sources": [
+          "https://salehere.co.th/oriental-princess/promotions/member-birthday-discount-35-percent-february-2023",
+          "https://www.tiktok.com/@oriental_princess/video/7527194191202471175"
+        ],
+        "evidence": "Official TikTok: 'รับสิทธิ์ส่วนลด 35% เลือกได้ทั้งร้าน! (วงเงินตามประเภทสมาชิก) ... ใช้สิทธิ์ได้ในเดือนเกิด หรือหลังจากเดือนเกิด 1 เดือน ... 1 สิทธิ์ / 1 เบอร์โทร.' Recurring through 2026. Category: cosmetic. Claim [13].",
+        "vote": "3-0"
+      },
+      {
+        "claim": "Siam Amazing Park (Suan Siam / สวนสยาม) gives free entry for 1 day any day in the birth month — an Adult Adventure Pass (stated value ~1,000 baht) with unlimited access to water park and amusement rides. Redeemed in-store by presenting a valid non-expired original Thai national ID at the ticket counter, no advance booking; Thai residents only; companions pay ~450 baht (max 2). Valid through Sept 2026.",
+        "confidence": "high",
+        "sources": [
+          "https://www.siamamazingpark.com/promotion-other-detail/62",
+          "https://chillpainai.com/scoop/16267",
+          "https://salehere.co.th/siam-amazing-park/promotions/travel-for-free-1-day-in-birth-month"
+        ],
+        "evidence": "Official site: 'รับสิทธิ์เที่ยวฟรี 1 วัน วันใดก็ได้ภายในเดือนเกิดของท่าน' + 'แสดงบัตรประชาชนตัวจริงที่ยังไม่หมดอายุ ... ไม่ต้องจองล่วงหน้า.' Category: entertainment; no membership. Merges claims [14], [15], [16].",
+        "vote": "3-0"
+      },
+      {
+        "claim": "Dream World (ดรีมเวิลด์) gives free entry plus a Visa pass for unlimited rides to a visitor on their actual birthday (not the whole month). Requires advance online registration at dreamworld.co.th (≥2 days) and presenting real national ID at booth #1 before 4:00 PM; some attractions limited to once, others (Snow Town, Go-Karts) excluded. A separate birth-month unlimited-rides pass (~430 baht) also exists.",
+        "confidence": "high",
+        "sources": [
+          "https://chillpainai.com/scoop/15500",
+          "https://www.dreamworld.co.th"
+        ],
+        "evidence": "chillpainai: 'เที่ยวตรงวันเกิด สนุกกับเครื่องเล่นไม่จำกัดรอบ ฟรี.' Corroborated by dreamworld.co.th. Category: entertainment; tied to actual birthday, not birth month. Claim [17].",
+        "vote": "3-0"
+      },
+      {
+        "claim": "Suki Teenoi (สุกี้ตี๋น้อย) gives a free meal (ทานฟรี) in the birth month only to Silver/Gold/Platinum members (Silver = free + 1 guest, Gold = +2, Platinum = +3); redeemed in-store by showing the @Sukiteenoi loyalty coupon code plus national ID. Tier-gated, so prior spend is effectively implied.",
+        "confidence": "high",
+        "sources": [
+          "https://chillpainai.com/scoop/18036",
+          "https://salehere.co.th/suki-teenoi",
+          "https://www.facebook.com/shobproth/posts/1348762237280641/"
+        ],
+        "evidence": "chillpainai: 'กินสุกี้ตี๋น้อยฟรีวันเกิด สำหรับสมาชิกระดับ Silver, Gold, Platinum.' Category: food; in-store, tier-gated. Claim [18].",
+        "vote": "3-0"
+      },
+      {
+        "claim": "Dairy Queen Thailand offers a Blizzard size XL for 79 baht (regular price 199 baht per the official site, NOT 149) during the birth month; requires D-Member enrollment via LINE OA @DairyqueenThailand, one redemption per member, in-store.",
+        "confidence": "high",
+        "sources": [
+          "https://www.dairyqueenthailand.com/promotion",
+          "https://salehere.co.th/dairy-queen/promotions/d-member-birthday-deals"
+        ],
+        "evidence": "Official DQ TH: 'Special Price for Blizzard XL Any Flavors Only 79.- (from 199.-)' in birth month via D-Member LINE OA. NOTE: claim's '149 baht normal price' is wrong; official regular price is 199 baht. A competing 'no membership required' version was REFUTED 0-3. Category: dessert. Claim [20].",
+        "vote": "3-0"
+      }
+    ],
+    "caveats": "Coverage is far narrower than the ~50-100 brand target: only ~14 distinct brands cleared adversarial verification. Many famous names on Thai \"โปรเดือนเกิด\" sheets (Swensen's, KOI Thé, Bearhouse, Coco, DoiTung, La Lune, McDonald's, Haidilao, Shake Shack, NARS, L'OCCITANE, Yves Rocher, Donki, etc.) are NOT confirmed here — absence reflects unverified sourcing, not absence of a perk. Source quality is mixed: Sephora, Amex, Major Cineplex, Siam Amazing Park, Dairy Queen, and Starbucks rest on PRIMARY brand pages (high confidence), but CHAGEE, Karun, The Alley, Potato Corner, Burger King, Suki Teenoi, and Oriental Princess rely chiefly on SECONDARY aggregators (SaleHere, chillpainai), Lemon8/TikTok posts, or a Facebook blog — credible for routine loyalty perks but not authoritative. Three claims were explicitly REFUTED (0-3 or 1-2): DQ \"no membership required,\" CHAGEE \"any menu item / in-store,\" and DoiTung Cafe free drink — do not treat these as valid. Time-sensitivity is significant: perks are loyalty-program-dependent and change yearly; exact baht caps, tier thresholds, and validity windows (several cited campaigns end mid-2026) should be re-checked against each brand's live LINE OA/app before relying on them. Several perks require setting birthday info in advance (CHAGEE ~1 month; Major M GEN card active ≥2 weeks before birthday), so eligibility can be lost by signing up too late. Most perks are Thai-resident or app/LINE-account gated.",
+    "openQuestions": [
+      "What are the verified 2026 birthday perks for the large set of well-known but unconfirmed brands (Swensen's, KOI Thé, Bearhouse, Coco, DoiTung, McDonald's, Haidilao, Shake Shack, NARS, L'OCCITANE, Yves Rocher, Don Don Donki) needed to reach the 50-100 brand target?",
+      "Which Thai bank co-brand / credit-card birthday promotions beyond Amex Platinum (e.g. UOB, Aeon, KTC, SCB) offer birthday cashback or bonus points in 2026, and what are the exact conditions?",
+      "For tier-gated free-drink perks (CHAGEE, The Alley, Starbucks), what is the exact baht value cap and the precise spend/points threshold to reach the qualifying tier in 2026?",
+      "Are the calendar-bound campaign windows (e.g. Major Cineplex Mar 2025-Feb 2026, Siam Amazing Park through Sept 2026) being renewed for the full 2026 calendar year, and what replaces them after expiry?"
+    ],
+    "refuted": [
+      {
+        "claim": "Dairy Queen Thailand offers a birthday-month Blizzard size XL for 79 baht (50% off) at in-store redemption with no membership required.",
+        "vote": "0-3",
+        "source": "https://food.trueid.net/detail/R560yAVBAnOm"
+      },
+      {
+        "claim": "CHAGEE Thailand provides one free drink of any menu item during the birthday month, redeemed in-store.",
+        "vote": "0-3",
+        "source": "https://food.trueid.net/detail/R560yAVBAnOm"
+      },
+      {
+        "claim": "Doitung Café offers a birthday-month perk of a free drink worth up to 180 baht for members.",
+        "vote": "1-2",
+        "source": "https://www.lemon8-app.com/@kinthiao519/7603337439226102279?region=us"
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://salehere.co.th/top-pro/birthday-promotion",
+        "quality": "unreliable",
+        "angle": "broad/primary aggregated promo sheets",
+        "claimCount": 0
+      },
+      {
+        "url": "https://www.lemon8-app.com/experience/%E0%B9%82%E0%B8%9B%E0%B8%A3-%E0%B8%A7%E0%B8%B1%E0%B8%99-%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%94?region=th",
+        "quality": "unreliable",
+        "angle": "broad/primary aggregated promo sheets",
+        "claimCount": 0
+      },
+      {
+        "url": "https://food.trueid.net/detail/R560yAVBAnOm",
+        "quality": "secondary",
+        "angle": "broad/primary aggregated promo sheets",
+        "claimCount": 5
+      },
+      {
+        "url": "https://www.facebook.com/shobproth/posts/1348762237280641/",
+        "quality": "blog",
+        "angle": "broad/primary aggregated promo sheets",
+        "claimCount": 5
+      },
+      {
+        "url": "https://food.trueid.net/detail/26l2Kkv3POMp",
+        "quality": "secondary",
+        "angle": "broad/primary aggregated promo sheets",
+        "claimCount": 5
+      },
+      {
+        "url": "https://www.lemon8-app.com/@kinthiao519/7603337439226102279?region=us",
+        "quality": "blog",
+        "angle": "broad/primary aggregated promo sheets",
+        "claimCount": 5
+      },
+      {
+        "url": "https://salehere.co.th/chagee/promotions/member-birthday-free-beverage",
+        "quality": "secondary",
+        "angle": "food & beverage chains birthday rewards",
+        "claimCount": 3
+      },
+      {
+        "url": "https://salehere.co.th/karun-thai-tea/promotions/membership-free-beverage",
+        "quality": "secondary",
+        "angle": "food & beverage chains birthday rewards",
+        "claimCount": 2
+      },
+      {
+        "url": "https://www.lemon8-app.com/@callmetatar_/7524237348465312274?region=us",
+        "quality": "blog",
+        "angle": "food & beverage chains birthday rewards",
+        "claimCount": 4
+      },
+      {
+        "url": "https://brandsite.swensens1112.com/privilege",
+        "quality": "primary",
+        "angle": "food & beverage chains birthday rewards",
+        "claimCount": 0
+      },
+      {
+        "url": "https://salehere.co.th/oriental-princess/promotions/member-birthday-discount-35-percent-february-2023",
+        "quality": "secondary",
+        "angle": "beauty/cosmetic & retail membership perks",
+        "claimCount": 2
+      },
+      {
+        "url": "https://www.yves-rocher.co.th/en/faq/",
+        "quality": "unreliable",
+        "angle": "beauty/cosmetic & retail membership perks",
+        "claimCount": 0
+      },
+      {
+        "url": "https://sephorath.zendesk.com/hc/en-us/articles/55504465587225-How-can-I-redeem-my-Birthday-Gift-White-Black-Gold-Members",
+        "quality": "primary",
+        "angle": "beauty/cosmetic & retail membership perks",
+        "claimCount": 5
+      },
+      {
+        "url": "https://www.lemon8-app.com/@prodguaranteebydavid/7458919224187306512?region=us",
+        "quality": "blog",
+        "angle": "beauty/cosmetic & retail membership perks",
+        "claimCount": 4
+      },
+      {
+        "url": "https://www.americanexpress.com/th/en/charge-cards/thai-platinum-card/",
+        "quality": "primary",
+        "angle": "bank / credit-card birthday cashback campaigns",
+        "claimCount": 4
+      },
+      {
+        "url": "https://www.krungsri.com/th/wealth/krungsri-exclusive/privileges/earn-krungsri-point",
+        "quality": "primary",
+        "angle": "bank / credit-card birthday cashback campaigns",
+        "claimCount": 0
+      },
+      {
+        "url": "https://www.punpro.com/p/birthday-privilege",
+        "quality": "blog",
+        "angle": "bank / credit-card birthday cashback campaigns",
+        "claimCount": 5
+      },
+      {
+        "url": "https://www.kasikornbank.com/th/promotion/creditcard/pages/index.aspx",
+        "quality": "unreliable",
+        "angle": "bank / credit-card birthday cashback campaigns",
+        "claimCount": 0
+      },
+      {
+        "url": "https://www.uob.co.th/personal/credit-cards/promotions.page",
+        "quality": "primary",
+        "angle": "bank / credit-card birthday cashback campaigns",
+        "claimCount": 2
+      },
+      {
+        "url": "https://www.thaicardonline.com/scb-บัตรเครดิตใบไหนคุ้มสุด/",
+        "quality": "unreliable",
+        "angle": "bank / credit-card birthday cashback campaigns",
+        "claimCount": 0
+      },
+      {
+        "url": "https://chillpainai.com/scoop/16267",
+        "quality": "secondary",
+        "angle": "entertainment, theme parks & evergreen vs calendar-month",
+        "claimCount": 4
+      },
+      {
+        "url": "https://salehere.co.th/siam-amazing-park/promotions/travel-for-free-1-day-in-birth-month",
+        "quality": "secondary",
+        "angle": "entertainment, theme parks & evergreen vs calendar-month",
+        "claimCount": 2
+      },
+      {
+        "url": "https://chillpainai.com/scoop/15500",
+        "quality": "secondary",
+        "angle": "entertainment, theme parks & evergreen vs calendar-month",
+        "claimCount": 4
+      },
+      {
+        "url": "https://www.majorcineplex.com/promotion/m-gen-happy-birthday",
+        "quality": "primary",
+        "angle": "entertainment, theme parks & evergreen vs calendar-month",
+        "claimCount": 4
+      }
+    ],
+    "stats": {
+      "angles": 5,
+      "sourcesFetched": 24,
+      "claimsExtracted": 65,
+      "claimsVerified": 25,
+      "confirmed": 22,
+      "killed": 3,
+      "afterSynthesis": 14,
+      "urlDupes": 2,
+      "budgetDropped": 4,
+      "agentCalls": 106
+    }
+  }
+}
