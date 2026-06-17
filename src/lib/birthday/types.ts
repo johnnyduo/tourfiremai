@@ -22,7 +22,6 @@ export interface BirthdayPromo {
 	url?: string;
 	note?: string;
 	domain?: string; // brand domain for logo lookup, e.g. "starbucks.co.th"
-	image?: string; // verified stable product/brand photo URL (proxied through wsrv)
 }
 
 export interface BirthdayFile {

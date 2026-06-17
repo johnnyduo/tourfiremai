@@ -18,8 +18,7 @@
 			"condition": "เคยซื้อ",
 			"perk": "รับฟรี! เครื่องดื่ม Size M 1 แก้ว (1,500 สิทธิ์/วัน)",
 			"evergreen": true,
-			"domain": "bearhouse.co",
-			"image": "https://bearhouse.co.th/wp-content/uploads/2026/04/1_7IV07483.jpg"
+			"domain": "bearhouse.co"
 		},
 		{
 			"id": "beibei-teahouse-1",
@@ -97,8 +96,7 @@
 			"evergreen": true,
 			"note": "ยืนยันจากแหล่งข้อมูล 2026",
 			"url": "https://salehere.co.th/karun-thai-tea/promotions/membership-free-beverage",
-			"domain": "karunthaitea.com",
-			"image": "https://www.gaysornvillage.com/wp-content/uploads/2024/05/KARUN-15-08-20200358.webp"
+			"domain": "karunthaitea.com"
 		},
 		{
 			"id": "koi-the-1",
@@ -349,8 +347,7 @@
 			"evergreen": true,
 			"note": "ใช้สิทธิ์ในเดือนเกิดหรือหลังเดือนเกิด 1 เดือน · 1 สิทธิ์/เบอร์ · ยืนยัน 2026",
 			"url": "https://salehere.co.th/oriental-princess/promotions/member-birthday-discount-35-percent-february-2023",
-			"domain": "orientalprincess.com",
-			"image": "https://www.orientalprincess.com/pub/media/catalog/product/p/e/perfect_fix_concealer-01_1.jpg"
+			"domain": "orientalprincess.com"
 		},
 		{
 			"id": "sephora-1",
