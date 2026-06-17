@@ -17,7 +17,8 @@
 			"channel": "line",
 			"condition": "เคยซื้อ",
 			"perk": "รับฟรี! เครื่องดื่ม Size M 1 แก้ว (1,500 สิทธิ์/วัน)",
-			"evergreen": true
+			"evergreen": true,
+			"domain": "bearhouse.co"
 		},
 		{
 			"id": "beibei-teahouse-1",
@@ -34,7 +35,8 @@
 			"channel": "line",
 			"condition": "เคยซื้อ",
 			"perk": "รับฟรี! เครื่องดื่ม Birthday Boost 1 แก้ว",
-			"evergreen": true
+			"evergreen": true,
+			"domain": "boostjuice.com"
 		},
 		{
 			"id": "chagee-1",
@@ -45,7 +47,8 @@
 			"perk": "รับฟรี! เครื่องดื่ม 1 แก้ว (มูลค่าสูงสุด ~180 บาท)",
 			"evergreen": true,
 			"note": "ตั้งค่าวันเกิดล่วงหน้า ~1 เดือน · ยืนยันจากแหล่งข้อมูล 2026",
-			"url": "https://salehere.co.th/chagee/promotions/member-birthday-free-beverage"
+			"url": "https://salehere.co.th/chagee/promotions/member-birthday-free-beverage",
+			"domain": "chagee.com"
 		},
 		{
 			"id": "coco-1",
@@ -53,7 +56,8 @@
 			"category": "drinks",
 			"channel": "line",
 			"perk": "รับฟรี! คูปอง 100 บาท",
-			"evergreen": true
+			"evergreen": true,
+			"domain": "coco-tea.com"
 		},
 		{
 			"id": "coffee-house-doitung-1",
@@ -61,7 +65,8 @@
 			"category": "drinks",
 			"channel": "line",
 			"perk": "รับฟรี! เครื่องดื่ม 1 แก้ว (ไม่เกิน 180.-)",
-			"evergreen": true
+			"evergreen": true,
+			"domain": "doitung.com"
 		},
 		{
 			"id": "doitung-1",
@@ -69,7 +74,8 @@
 			"category": "drinks",
 			"channel": "line",
 			"perk": "รับฟรี! เครื่องดื่ม 1 แก้ว",
-			"evergreen": true
+			"evergreen": true,
+			"domain": "doitung.com"
 		},
 		{
 			"id": "erte-cafe-1",
@@ -89,7 +95,8 @@
 			"perk": "รับฟรี! ชาไทย/ชาดำ 16oz 1 แก้ว",
 			"evergreen": true,
 			"note": "ยืนยันจากแหล่งข้อมูล 2026",
-			"url": "https://salehere.co.th/karun-thai-tea/promotions/membership-free-beverage"
+			"url": "https://salehere.co.th/karun-thai-tea/promotions/membership-free-beverage",
+			"domain": "karunthaitea.com"
 		},
 		{
 			"id": "koi-the-1",
@@ -97,7 +104,8 @@
 			"category": "drinks",
 			"channel": "app",
 			"perk": "รับฟรี! เครื่องดื่มฟรี 1 แก้ว",
-			"evergreen": true
+			"evergreen": true,
+			"domain": "koithe.com"
 		},
 		{
 			"id": "la-lune-1",
@@ -143,7 +151,8 @@
 			"perk": "รับฟรี! เครื่องดื่ม 1 แก้ว (ทุกขนาด + แต่ง 2 อย่าง) และอาหาร 1 ชิ้น (ไม่เกิน 150.-)",
 			"evergreen": true,
 			"note": "เติมสิทธิ์วันแรกของเดือนเกิด รับที่ร้าน · ยืนยันจากเว็บ Starbucks Rewards",
-			"url": "https://rewards.starbucks.co.th/faq"
+			"url": "https://rewards.starbucks.co.th/faq",
+			"domain": "starbucks.co.th"
 		},
 		{
 			"id": "starbucks-uob-1",
@@ -152,7 +161,8 @@
 			"channel": "card",
 			"channelLabel": "UOB Simple",
 			"perk": "สิทธิ์เครดิตเงินคืน UOB สูงสุด 200.-",
-			"evergreen": true
+			"evergreen": true,
+			"domain": "starbucks.co.th"
 		},
 		{
 			"id": "thank-you-cup-1",
@@ -171,7 +181,8 @@
 			"perk": "รับฟรี! Shortbread 1 ชิ้น และเครื่องดื่ม 1 แก้ว (ไม่เกิน 100.-)",
 			"evergreen": true,
 			"note": "ยืนยันจากแหล่งข้อมูล 2026",
-			"url": "https://salehere.co.th/the-alley"
+			"url": "https://salehere.co.th/the-alley",
+			"domain": "thealley.com"
 		},
 		{
 			"id": "namtao-1",
@@ -190,7 +201,8 @@
 			"perk": "รับฟรี! เฟรนช์ฟรายส์ไซส์ใหญ่",
 			"evergreen": true,
 			"note": "Baby=Large, Teenager=Mega, Super Boss=Giga · คูปองใช้ภายใน 1 ชม. · ยืนยัน 2026",
-			"url": "https://salehere.co.th/potato-corner"
+			"url": "https://salehere.co.th/potato-corner",
+			"domain": "potatocorner.com"
 		},
 		{
 			"id": "burger-king-1",
@@ -201,7 +213,8 @@
 			"perk": "รับฟรี! เฟรนช์ฟรายส์ Size S",
 			"evergreen": true,
 			"note": "Gold=กลาง, Diamond=ชุดอาหาร · ยืนยัน 1 ม.ค.-31 ธ.ค. 2026",
-			"url": "https://salehere.co.th/burger-king"
+			"url": "https://salehere.co.th/burger-king",
+			"domain": "burgerking.co.th"
 		},
 		{
 			"id": "haidilao-1",
@@ -209,7 +222,8 @@
 			"category": "food",
 			"channel": "instore",
 			"perk": "รับฟรี! เค้กเนื้อวันเกิด",
-			"evergreen": true
+			"evergreen": true,
+			"domain": "haidilao.com"
 		},
 		{
 			"id": "dairy-queen-1",
@@ -220,7 +234,8 @@
 			"perk": "รับคูปองซื้อบลิซซาร์ด ไซซ์ XL ในราคาพิเศษ 79.- (ปกติ 199.-)",
 			"evergreen": true,
 			"note": "ยืนยันจากเว็บ Dairy Queen Thailand (ต้องเป็นสมาชิก)",
-			"url": "https://www.dairyqueenthailand.com/promotion"
+			"url": "https://www.dairyqueenthailand.com/promotion",
+			"domain": "dairyqueen.com"
 		},
 		{
 			"id": "mcdonalds-1",
@@ -228,7 +243,8 @@
 			"category": "food",
 			"channel": "app",
 			"perk": "รับฟรี! ไอศกรีมซันเด",
-			"evergreen": true
+			"evergreen": true,
+			"domain": "mcdonalds.co.th"
 		},
 		{
 			"id": "neo-suki-1",
@@ -245,7 +261,8 @@
 			"channel": "line",
 			"condition": "ยอด 50 บาท",
 			"perk": "รับฟรี! ไอศกรีม Concrete ฟรี 1 ถ้วย",
-			"evergreen": true
+			"evergreen": true,
+			"domain": "shakeshack.com"
 		},
 		{
 			"id": "suki-king-1",
@@ -269,7 +286,8 @@
 			"category": "food",
 			"channel": "line",
 			"perk": "รับฟรี! มินิเค้กหมูเจยุก หรือ ซุปสาหร่าย (เลือก 1 อย่าง)",
-			"evergreen": true
+			"evergreen": true,
+			"domain": "sukishi.com"
 		},
 		{
 			"id": "lucky-suki-1",
@@ -306,7 +324,8 @@
 			"channel": "card",
 			"channelLabel": "UOB Premier",
 			"perk": "รับฟรี! NARS Express Service 1 ครั้ง (มูลค่า 1,200 บาท)",
-			"evergreen": true
+			"evergreen": true,
+			"domain": "narscosmetics.com"
 		},
 		{
 			"id": "loccitane-1",
@@ -315,7 +334,8 @@
 			"channel": "line",
 			"condition": "ระดับ CLUB ขึ้นไป",
 			"perk": "รับฟรี! ของขวัญวันเกิด และส่วนลดพิเศษ",
-			"evergreen": true
+			"evergreen": true,
+			"domain": "loccitane.com"
 		},
 		{
 			"id": "oriental-princess-1",
@@ -326,7 +346,8 @@
 			"perk": "รับฟรี! ของขวัญวันเกิด 1 ชิ้น และส่วนลด 35%",
 			"evergreen": true,
 			"note": "ใช้สิทธิ์ในเดือนเกิดหรือหลังเดือนเกิด 1 เดือน · 1 สิทธิ์/เบอร์ · ยืนยัน 2026",
-			"url": "https://salehere.co.th/oriental-princess/promotions/member-birthday-discount-35-percent-february-2023"
+			"url": "https://salehere.co.th/oriental-princess/promotions/member-birthday-discount-35-percent-february-2023",
+			"domain": "orientalprincess.com"
 		},
 		{
 			"id": "sephora-1",
@@ -337,7 +358,8 @@
 			"perk": "รับฟรี! ของขวัญวันเกิด 1 ชิ้น และบริการแว็กซ์คิ้ว",
 			"evergreen": true,
 			"note": "รับได้ทั้งหน้าร้าน (ไม่ต้องซื้อ) และออนไลน์ เฉพาะเดือนเกิด · ยืนยันจากเว็บ Sephora TH",
-			"url": "https://sephorath.zendesk.com/hc/en-us/articles/55504465587225-How-can-I-redeem-my-Birthday-Gift-White-Black-Gold-Members"
+			"url": "https://sephorath.zendesk.com/hc/en-us/articles/55504465587225-How-can-I-redeem-my-Birthday-Gift-White-Black-Gold-Members",
+			"domain": "sephora.co.th"
 		},
 		{
 			"id": "yves-rocher-1",
@@ -346,7 +368,8 @@
 			"channel": "line",
 			"condition": "มียอดขั้นต่ำ",
 			"perk": "รับฟรี! ของขวัญวันเกิด 1 ชิ้น และส่วนลดสูงสุด 50%",
-			"evergreen": true
+			"evergreen": true,
+			"domain": "yves-rocher.co.th"
 		},
 		{
 			"id": "amex-platinum-1",
@@ -358,7 +381,8 @@
 			"perk": "รับ 3 เท่า! คะแนน Membership Rewards (ทุก 25 บาท) ตลอดเดือนเกิด",
 			"evergreen": true,
 			"note": "ยืนยันจากเว็บ American Express TH",
-			"url": "https://www.americanexpress.com/th/en/charge-cards/thai-platinum-card/"
+			"url": "https://www.americanexpress.com/th/en/charge-cards/thai-platinum-card/",
+			"domain": "americanexpress.com"
 		},
 		{
 			"id": "donki-1",
@@ -366,7 +390,8 @@
 			"category": "shopping",
 			"channel": "app",
 			"perk": "รับฟรี! คูปองส่วนลด 125 บาท",
-			"evergreen": true
+			"evergreen": true,
+			"domain": "donki.com"
 		},
 		{
 			"id": "major-cineplex-1",
@@ -378,7 +403,8 @@
 			"perk": "ดูฟรี! 1 ครั้งในสัปดาห์เกิด (1 ที่นั่ง · First Class 2 ที่นั่ง)",
 			"evergreen": true,
 			"note": "ใช้สิทธิ์อาทิตย์-เสาร์ในสัปดาห์เกิด · ยืนยันจากเว็บ Major Cineplex",
-			"url": "https://www.majorcineplex.com/promotion/m-gen-happy-birthday"
+			"url": "https://www.majorcineplex.com/promotion/m-gen-happy-birthday",
+			"domain": "majorcineplex.com"
 		},
 		{
 			"id": "dream-world-1",
@@ -389,7 +415,8 @@
 			"perk": "รับบัตรดรีมเวิลด์วีซ่า 1 ใบ (มูลค่า 800 บาท) เที่ยวในวันเกิด",
 			"evergreen": true,
 			"note": "เล่นเครื่องเล่นไม่จำกัดรอบฟรี · แสดงบัตรประชาชนที่บูธ 1 ก่อน 16:00 · ยืนยันจาก dreamworld.co.th",
-			"url": "https://www.dreamworld.co.th"
+			"url": "https://www.dreamworld.co.th",
+			"domain": "dreamworld.co.th"
 		},
 		{
 			"id": "siam-amazing-park-1",
@@ -400,7 +427,8 @@
 			"perk": "เข้าฟรี! เที่ยวฟรี 1 วัน ในเดือนเกิด (Adult Adventure Pass ~1,000 บาท)",
 			"evergreen": true,
 			"note": "ไม่ต้องจองล่วงหน้า · ผู้ติดตามจ่าย ~450 บาท (สูงสุด 2 คน) · ยืนยันถึง ก.ย. 2026",
-			"url": "https://www.siamamazingpark.com/promotion-other-detail/62"
+			"url": "https://www.siamamazingpark.com/promotion-other-detail/62",
+			"domain": "siamamazingpark.com"
 		}
 	]
 }

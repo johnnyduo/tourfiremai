@@ -1,12 +1,14 @@
 <script lang="ts">
 	import type { BirthdayPromo } from '$lib/birthday/types';
 	import { CHANNEL_LABELS } from '$lib/birthday/types';
+	import BrandLogo from './BrandLogo.svelte';
 	export let promo: BirthdayPromo;
 	$: channelText = promo.channelLabel ?? CHANNEL_LABELS[promo.channel];
 </script>
 
 <article class="card bday">
 	<div class="top">
+		<BrandLogo brand={promo.brand} domain={promo.domain} size={44} />
 		<h3>{promo.brand}</h3>
 		<span class="chip">{channelText}</span>
 	</div>
@@ -28,12 +30,16 @@
 	.top {
 		display: flex;
 		align-items: center;
-		justify-content: space-between;
 		gap: 10px;
 	}
 	h3 {
 		margin: 0;
 		font-size: 1.05rem;
+		flex: 1 1 auto;
+		min-width: 0;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 	.chip {
 		flex: 0 0 auto;
