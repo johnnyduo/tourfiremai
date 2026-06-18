@@ -1,30 +1,17 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import MonthTabs from '$lib/components/MonthTabs.svelte';
 	import BirthdayCard from '$lib/components/BirthdayCard.svelte';
-	import {
-		currentMonth,
-		promosForBirthMonth,
-		promosForCalendarMonth,
-		groupByCategory
-	} from '$lib/birthday/select';
+	import { groupByCategory } from '$lib/birthday/select';
 	import { SITE } from '$lib/site';
 	import { faqJsonLd, breadcrumbJsonLd, ldJson } from '$lib/seo';
 
 	export let data;
 	const base = SITE.base;
 
-	let month = 6; // SSR default; corrected to real current month on mount
-	let view: 'birth' | 'calendar' = 'birth';
-	onMount(() => {
-		month = currentMonth(new Date());
-	});
-
-	$: selected =
-		view === 'birth'
-			? promosForBirthMonth(data.promos, month)
-			: promosForCalendarMonth(data.promos, month, new Date());
-	$: groups = groupByCategory(selected);
+	// Every promo is currently evergreen (valid in your birth month, any month), so we
+	// show the full catalogue grouped by category. The month/view controls were removed
+	// until the data carries month-specific campaigns to drive them.
+	$: total = data.promos.length;
+	$: groups = groupByCategory(data.promos);
 
 	const faqs = [
 		{
@@ -64,24 +51,15 @@
 <section class="hero">
 	<h1>🎂 <span class="fire-text">โปรเดือนเกิด</span> — รวมสิทธิ์วันเกิดทั่วไทย</h1>
 	<p>
-		เลือกเดือนเกิดของคุณ แล้วดูสิทธิ์ฟรีและส่วนลดจากแบรนด์ดัง · อัปเดต {data.generatedAt} ·
-		โปรดยืนยันกับร้านค้า
+		รวม {total} สิทธิ์วันเกิดจากแบรนด์ดัง — เครื่องดื่มฟรี ของหวานฟรี และส่วนลด ใช้ได้ในเดือนเกิดของคุณ ·
+		อัปเดต {data.generatedAt} · โปรดยืนยันกับร้านค้า
 	</p>
 </section>
-
-<div class="controls">
-	<div class="view">
-		<button class:active={view === 'birth'} on:click={() => (view = 'birth')}>เดือนเกิดฉัน</button>
-		<button class:active={view === 'calendar'} on:click={() => (view = 'calendar')}>โปรเดือนนี้</button
-		>
-	</div>
-	<MonthTabs bind:value={month} />
-</div>
 
 {#if groups.length}
 	{#each groups as g (g.category)}
 		<section class="cat">
-			<h2>{g.label}</h2>
+			<h2>{g.label} <span class="count">{g.items.length}</span></h2>
 			<div class="grid">
 				{#each g.items as promo (promo.id)}
 					<BirthdayCard {promo} />
@@ -90,7 +68,7 @@
 		</section>
 	{/each}
 {:else}
-	<p class="empty">ยังไม่มีโปรเดือนเกิดสำหรับเดือนนี้ 🎂</p>
+	<p class="empty">กำลังรวบรวมโปรเดือนเกิด โปรดกลับมาใหม่อีกครั้ง 🎂</p>
 {/if}
 
 <section class="faq">
@@ -113,40 +91,24 @@
 		color: var(--muted);
 		max-width: 640px;
 	}
-	.controls {
-		position: sticky;
-		top: 62px;
-		background: color-mix(in srgb, var(--bg) 90%, transparent);
-		backdrop-filter: blur(8px);
-		z-index: 5;
-		padding-top: 10px;
-	}
-	.view {
-		display: flex;
-		gap: 8px;
-		margin-bottom: 8px;
-	}
-	.view button {
-		border: 1px solid var(--line);
-		background: var(--card);
-		color: var(--muted);
-		border-radius: 999px;
-		padding: 7px 18px;
-		font-family: inherit;
-		font-weight: 700;
-		cursor: pointer;
-	}
-	.view button.active {
-		background: var(--ink);
-		color: var(--bg);
-		border-color: transparent;
-	}
 	.cat {
 		margin-top: 26px;
 	}
 	.cat h2 {
 		font-size: 1.25rem;
 		margin: 0 0 14px;
+		display: flex;
+		align-items: baseline;
+		gap: 8px;
+	}
+	.cat h2 .count {
+		font-size: 0.85rem;
+		font-weight: 700;
+		color: var(--muted);
+		background: var(--card);
+		border: 1px solid var(--line);
+		border-radius: 999px;
+		padding: 1px 9px;
 	}
 	.empty {
 		padding: 50px 0;
