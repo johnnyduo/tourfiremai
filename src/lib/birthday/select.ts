@@ -9,6 +9,16 @@ export function promosForBirthMonth(promos: BirthdayPromo[], month: number): Bir
 	return promos.filter((x) => x.evergreen || (x.months?.includes(month) ?? false));
 }
 
+/** Promos pinned to this calendar month (month-specific campaigns), excluding pure evergreen. */
+export function monthSpecific(promos: BirthdayPromo[], month: number): BirthdayPromo[] {
+	return promos.filter((x) => !x.evergreen && (x.months?.includes(month) ?? false));
+}
+
+/** Promos valid in any birth month (evergreen). Order preserved. */
+export function evergreenPromos(promos: BirthdayPromo[]): BirthdayPromo[] {
+	return promos.filter((x) => x.evergreen);
+}
+
 export function promosForCalendarMonth(
 	promos: BirthdayPromo[],
 	month: number,

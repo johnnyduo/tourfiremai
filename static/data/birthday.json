@@ -1,6 +1,6 @@
 {
 	"generatedAt": "2026-06-17",
-	"count": 43,
+	"count": 44,
 	"promos": [
 		{
 			"id": "angbao-1",
@@ -401,6 +401,22 @@
 			"evergreen": true,
 			"note": "ไม่ต้องจองล่วงหน้า · ผู้ติดตามจ่าย ~450 บาท (สูงสุด 2 คน) · ยืนยันถึง ก.ย. 2026",
 			"url": "https://www.siamamazingpark.com/promotion-other-detail/62"
+		},
+		{
+			"id": "krungsri-first-choice-1",
+			"brand": "Krungsri First Choice",
+			"category": "bank",
+			"channel": "card",
+			"channelLabel": "บัตรกรุงศรีเฟิร์สช้อยส์",
+			"condition": "ลงทะเบียนในเดือนเกิด + ใช้จ่ายสะสม 20,000 บาทใน 30 วัน (Blue Plus 10,000)",
+			"perk": "รับฟรี! ของขวัญวันเกิด เปลี่ยนทุกเดือน — มิ.ย. 69: ร่ม Valentino Rudy Signature (มูลค่า 1,290 บาท)",
+			"evergreen": false,
+			"months": [
+				6
+			],
+			"validUntilISO": "2026-06-30",
+			"note": "ลงทะเบียนผ่านแอป UCHOOSE หรือ SMS · ของขวัญเปลี่ยนทุกเดือน · ยืนยันจากเว็บ firstchoice.co.th",
+			"url": "https://www.firstchoice.co.th/promotion/hbd-core-card"
 		}
 	]
 }

@@ -3,6 +3,8 @@ import {
 	currentMonth,
 	promosForBirthMonth,
 	promosForCalendarMonth,
+	monthSpecific,
+	evergreenPromos,
 	groupByCategory
 } from '../src/lib/birthday/select';
 import type { BirthdayPromo } from '../src/lib/birthday/types';
@@ -63,6 +65,27 @@ describe('promosForCalendarMonth', () => {
 		expect(ids).not.toContain('ever'); // pure evergreen, no months
 		expect(ids).not.toContain('expired-jun'); // past validUntil
 		expect(ids).not.toContain('jan-only');
+	});
+});
+
+describe('monthSpecific', () => {
+	it('returns only non-evergreen promos pinned to the month', () => {
+		const ids = monthSpecific(promos, 6).map((x) => x.id);
+		expect(ids).toContain('jun-only');
+		expect(ids).toContain('expired-jun');
+		expect(ids).not.toContain('ever'); // pure evergreen excluded
+		expect(ids).not.toContain('ever-jun'); // evergreen even if it carries months
+		expect(ids).not.toContain('jan-only');
+	});
+	it('is empty for a month with no pinned campaigns', () => {
+		expect(monthSpecific(promos, 3)).toEqual([]);
+	});
+});
+
+describe('evergreenPromos', () => {
+	it('returns only evergreen promos, order preserved', () => {
+		const ids = evergreenPromos(promos).map((x) => x.id);
+		expect(ids).toEqual(['ever', 'ever-jun']);
 	});
 });
 

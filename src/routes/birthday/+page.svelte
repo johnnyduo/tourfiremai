@@ -1,17 +1,46 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	import MonthTabs from '$lib/components/MonthTabs.svelte';
 	import BirthdayCard from '$lib/components/BirthdayCard.svelte';
-	import { groupByCategory } from '$lib/birthday/select';
+	import {
+		currentMonth,
+		monthSpecific,
+		evergreenPromos,
+		groupByCategory
+	} from '$lib/birthday/select';
 	import { SITE } from '$lib/site';
 	import { faqJsonLd, breadcrumbJsonLd, ldJson } from '$lib/seo';
 
 	export let data;
 	const base = SITE.base;
 
-	// Every promo is currently evergreen (valid in your birth month, any month), so we
-	// show the full catalogue grouped by category. The month/view controls were removed
-	// until the data carries month-specific campaigns to drive them.
+	const MONTHS_TH = [
+		'มกราคม',
+		'กุมภาพันธ์',
+		'มีนาคม',
+		'เมษายน',
+		'พฤษภาคม',
+		'มิถุนายน',
+		'กรกฎาคม',
+		'สิงหาคม',
+		'กันยายน',
+		'ตุลาคม',
+		'พฤศจิกายน',
+		'ธันวาคม'
+	];
+
+	// Most perks are evergreen (valid in any birth month). A few are pinned to a specific
+	// calendar month (e.g. bank campaigns that change monthly). The month selector surfaces
+	// those month-specific extras; the evergreen catalogue stays the same below.
+	let month = 6; // SSR default; corrected to the real current month on mount
+	onMount(() => {
+		month = currentMonth(new Date());
+	});
+
 	$: total = data.promos.length;
-	$: groups = groupByCategory(data.promos);
+	$: special = monthSpecific(data.promos, month);
+	$: evergreen = evergreenPromos(data.promos);
+	$: groups = groupByCategory(evergreen);
 
 	const faqs = [
 		{
@@ -56,10 +85,32 @@
 	</p>
 </section>
 
+<div class="months">
+	<p class="months-label">เลือกเดือนเกิดของคุณ</p>
+	<MonthTabs bind:value={month} />
+</div>
+
+{#if special.length}
+	<section class="cat special">
+		<h2>✨ พิเศษเฉพาะเดือน{MONTHS_TH[month - 1]} <span class="count">{special.length}</span></h2>
+		<p class="special-note">โปรที่มีเฉพาะช่วงเดือนนี้ — รีบใช้ก่อนหมดเขต</p>
+		<div class="grid">
+			{#each special as promo (promo.id)}
+				<BirthdayCard {promo} />
+			{/each}
+		</div>
+	</section>
+{/if}
+
+<section class="cat evergreen-head">
+	<h2>🎂 ใช้ได้ทุกเดือนเกิด <span class="count">{evergreen.length}</span></h2>
+	<p class="special-note">สิทธิ์เหล่านี้ใช้ได้ในเดือนเกิดของคุณ ไม่ว่าคุณเกิดเดือนไหน</p>
+</section>
+
 {#if groups.length}
 	{#each groups as g (g.category)}
 		<section class="cat">
-			<h2>{g.label} <span class="count">{g.items.length}</span></h2>
+			<h3 class="cat-h">{g.label} <span class="count">{g.items.length}</span></h3>
 			<div class="grid">
 				{#each g.items as promo (promo.id)}
 					<BirthdayCard {promo} />
@@ -91,17 +142,35 @@
 		color: var(--muted);
 		max-width: 640px;
 	}
+	.months {
+		position: sticky;
+		top: 62px;
+		background: color-mix(in srgb, var(--bg) 90%, transparent);
+		backdrop-filter: blur(8px);
+		z-index: 5;
+		padding-top: 10px;
+	}
+	.months-label {
+		margin: 0 0 6px;
+		font-weight: 700;
+		font-size: 0.9rem;
+		color: var(--muted);
+	}
 	.cat {
 		margin-top: 26px;
 	}
-	.cat h2 {
+	.cat h2,
+	.cat .cat-h {
 		font-size: 1.25rem;
 		margin: 0 0 14px;
 		display: flex;
 		align-items: baseline;
 		gap: 8px;
 	}
-	.cat h2 .count {
+	.cat .cat-h {
+		font-size: 1.05rem;
+	}
+	.cat .count {
 		font-size: 0.85rem;
 		font-weight: 700;
 		color: var(--muted);
@@ -109,6 +178,30 @@
 		border: 1px solid var(--line);
 		border-radius: 999px;
 		padding: 1px 9px;
+	}
+	/* month-specific highlight block */
+	.special {
+		margin-top: 22px;
+		padding: 18px;
+		border: 1px solid color-mix(in srgb, var(--fire2) 35%, var(--line));
+		border-radius: var(--radius);
+		background: color-mix(in srgb, var(--fire1) 7%, transparent);
+	}
+	.special h2 {
+		margin-bottom: 6px;
+	}
+	.special-note {
+		margin: 0 0 14px;
+		font-size: 0.9rem;
+		color: var(--muted);
+	}
+	.evergreen-head {
+		margin-top: 34px;
+		border-top: 1px solid var(--line);
+		padding-top: 22px;
+	}
+	.evergreen-head .special-note {
+		margin-bottom: 0;
 	}
 	.empty {
 		padding: 50px 0;
