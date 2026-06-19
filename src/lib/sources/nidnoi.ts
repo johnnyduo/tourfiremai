@@ -22,9 +22,15 @@ export function parseNidnoi(html: string, url: string): RawTour | null {
 	const days = Number(text.match(/"stay_day":\s*"?(\d+)/)?.[1]) || undefined;
 	const nights = Number(text.match(/"stay_night":\s*"?(\d+)/)?.[1]) || undefined;
 	const airlinePic = text.match(/"url_airline_pic"\s*:\s*"([^"]*)"/)?.[1];
-	const image = html.match(
-		/nidnoitravel\.com\/wow\/upload\/[^"'\\ ]+ImageProduct[^"'\\ ]+?\.(?:png|jpg|jpeg|webp)/i
+	// Prefer og:image — present on every page and points at the real product image,
+	// including ones whose URL ends in a version number (".1?v=39") or ".gif" that the
+	// extension-whitelisted fallback regex below would miss. Fall back to the inline
+	// ImageProduct URL only when og:image is absent.
+	const ogImage = html.match(/og:image"\s+content="([^"]+)"/i)?.[1];
+	const inlineImage = html.match(
+		/https?:\/\/[^"'\\ ]*nidnoitravel\.com\/wow\/upload\/[^"'\\ ]+ImageProduct[^"'\\ ]+/i
 	)?.[0];
+	const image = ogImage ?? inlineImage;
 
 	const periods: Period[] = [];
 	const re =
@@ -64,7 +70,7 @@ export function parseNidnoi(html: string, url: string): RawTour | null {
 		title,
 		description: metaDescription(html),
 		countryRaw: title,
-		image: image ? `https://${image}` : undefined,
+		image: image ? (/^https?:\/\//i.test(image) ? image : `https://${image}`) : undefined,
 		airline: normalizeAirline(airlinePic ? airlinePic.split('/').pop() : undefined),
 		days,
 		nights,

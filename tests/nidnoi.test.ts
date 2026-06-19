@@ -21,6 +21,35 @@ describe('parseNidnoi', () => {
 		// fixture periods all have groupsize:0, so seats should be undefined, not a misleading 0
 		expect(t?.periods.every((p) => p.seats === undefined)).toBe(true);
 	});
+	it('extracts the product image from the fixture', () => {
+		expect(t?.image).toContain('ImageProduct/nidn261912');
+	});
+});
+
+describe('parseNidnoi image extraction', () => {
+	// Minimal HTML carrying just what the parser needs: og:title, one period, og:image.
+	const withImg = (ogImage: string) =>
+		`<meta property="og:title" content="ทัวร์ทดสอบ" />` +
+		`<meta property="og:image" content="${ogImage}" />` +
+		`"period_start_value":"2026-07-01","period_end_value":"2026-07-05","price_adults_double":9999`;
+	const parse = (og: string) =>
+		parseNidnoi(withImg(og), 'https://www.nidnoitravel.com/tour/NIDN260653/');
+
+	it('handles og:image with a version-number extension (.1?v=39)', () => {
+		// real failing case: URL ends in ".1?v=39", not a normal image extension
+		const t = parse('https://www.nidnoitravel.com/wow/upload/5478/ImageProduct/nidn260653.1?v=39');
+		expect(t?.image).toBe(
+			'https://www.nidnoitravel.com/wow/upload/5478/ImageProduct/nidn260653.1?v=39'
+		);
+	});
+	it('handles og:image with a .gif extension', () => {
+		const t = parse('https://www.nidnoitravel.com/wow/upload/5478/ImageProduct/nidn262454.gif?v=32');
+		expect(t?.image).toContain('nidn262454.gif');
+	});
+	it('keeps a normal .png og:image', () => {
+		const t = parse('https://www.nidnoitravel.com/wow/upload/5478/ImageProduct/nidn1.png?v=1');
+		expect(t?.image).toContain('nidn1.png');
+	});
 });
 
 describe('normalizeAirline', () => {
