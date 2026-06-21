@@ -16,6 +16,7 @@
     "@sveltejs/kit": "^2.5.0",
     "@sveltejs/vite-plugin-svelte": "^3.1.0",
     "@types/node": "^20.12.0",
+    "@types/qrcode": "^1.5.6",
     "svelte": "^4.2.0",
     "svelte-check": "^3.8.0",
     "tsx": "^4.16.0",
@@ -25,6 +26,8 @@
   },
   "dependencies": {
     "iconv-lite": "^0.6.3",
-    "node-html-parser": "^6.1.13"
+    "node-html-parser": "^6.1.13",
+    "promptparse": "^1.6.0",
+    "qrcode": "^1.5.4"
   }
 }

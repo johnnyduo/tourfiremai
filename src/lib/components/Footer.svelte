@@ -12,6 +12,7 @@
 			เราเป็นเพียงผู้รวบรวมข้อมูลและลิงก์ไปยังผู้ขายโดยตรง การจองและรับสิทธิ์ทำกับร้านค้าต้นทาง
 		</p>
 		<p class="sources">แหล่งข้อมูลทัวร์: {Object.values(SOURCE_LABELS).join(' · ')}</p>
+		<p class="support"><a href="/support">💝 สนับสนุนเรา — ช่วยค่าเซิร์ฟเวอร์</a></p>
 		<p class="fine">
 			© {new Date().getFullYear()}
 			{SITE.name} · ราคา ที่นั่ง และสิทธิ์โปรโมชันอาจเปลี่ยนแปลง โปรดยืนยันกับร้านค้า
@@ -38,5 +39,13 @@
 	}
 	.fine {
 		font-size: 0.8rem;
+	}
+	.support a {
+		color: var(--fire2);
+		font-weight: 700;
+		text-decoration: none;
+	}
+	.support a:hover {
+		text-decoration: underline;
 	}
 </style>

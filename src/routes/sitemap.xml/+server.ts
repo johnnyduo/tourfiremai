@@ -9,6 +9,7 @@ export async function GET() {
 	const urls = [
 		`${base}/`,
 		`${base}/birthday`,
+		`${base}/support`,
 		`${base}/search`,
 		...Object.keys(COUNTRY_LABELS).map((c) => `${base}/destination/${c}`),
 		...deals.map((d) => `${base}/tour/${d.slug}`)
