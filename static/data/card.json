@@ -1,0 +1,24 @@
+{
+	"generatedAt": "2026-06-22",
+	"count": 2,
+	"promos": [
+		{
+			"id": "ktc-dining-1",
+			"bank": "KTC",
+			"category": "dining",
+			"perk": "แลกรับเครดิตเงินคืน 15% ที่ร้านอาหารที่ร่วมรายการ",
+			"condition": "ใช้คะแนน KTC FOREVER แลก",
+			"evergreen": true,
+			"domain": "ktc.co.th"
+		},
+		{
+			"id": "scb-fuel-1",
+			"bank": "SCB",
+			"category": "fuel",
+			"perk": "เครดิตเงินคืนที่ปั๊มน้ำมันที่ร่วมรายการ",
+			"merchant": "Bangchak",
+			"evergreen": true,
+			"domain": "scb.co.th"
+		}
+	]
+}

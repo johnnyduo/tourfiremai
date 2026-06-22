@@ -15,6 +15,7 @@
 			<a href="/birthday" class="section" class:active={path.startsWith('/birthday')}
 				>🎂 โปรเดือนเกิด</a
 			>
+			<a href="/card" class="section" class:active={path.startsWith('/card')}>💳 โปรบัตรเครดิต</a>
 			{#each navCountries as c}
 				<a href={`/destination/${c}`}>{COUNTRY_LABELS[c]}</a>
 			{/each}
