@@ -4,8 +4,10 @@ import {
 	SATANG,
 	promptPayPayload,
 	qrDataUrl,
-	buildDonationOptions
+	buildDonationOptions,
+	decodeSlipQr
 } from '../src/lib/support';
+import { slipVerify as genSlip } from 'promptparse/generate';
 
 // CRC16/CCITT-FALSE — the checksum banks validate on an EMVCo QR.
 function crc16(s: string): string {
@@ -48,6 +50,24 @@ describe('qrDataUrl', () => {
 		const url = await qrDataUrl(promptPayPayload('0812345678', 100.88));
 		expect(url.startsWith('data:image/png;base64,')).toBe(true);
 		expect(url.length).toBeGreaterThan(200);
+	});
+});
+
+describe('decodeSlipQr', () => {
+	it('decodes a valid slip QR into sendingBank + transRef', () => {
+		const qr = genSlip({ sendingBank: '014', transRef: '015123456789012345' });
+		const info = decodeSlipQr(qr);
+		expect(info).not.toBeNull();
+		expect(info?.sendingBank).toBe('014');
+		expect(info?.transRef).toBe('015123456789012345');
+	});
+	it('returns null for a non-slip string', () => {
+		expect(decodeSlipQr('not a slip qr')).toBeNull();
+		expect(decodeSlipQr('')).toBeNull();
+	});
+	it('returns null for a PromptPay payment QR (wrong type)', () => {
+		// a payment payload is not a slip-verify payload
+		expect(decodeSlipQr(promptPayPayload('0828886624', 100.88))).toBeNull();
 	});
 });
 

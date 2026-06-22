@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "iconv-lite": "^0.6.3",
+    "jsqr": "^1.4.0",
     "node-html-parser": "^6.1.13",
     "promptparse": "^1.6.0",
     "qrcode": "^1.5.4"

@@ -1,4 +1,5 @@
 import { anyId } from 'promptparse/generate';
+import { slipVerify } from 'promptparse/validate';
 import QRCode from 'qrcode';
 
 /**
@@ -33,6 +34,30 @@ export interface DonationOption {
 	amount: number; // e.g. 200.88
 	label: string; // e.g. "200"
 	qr: string; // PNG data URL
+}
+
+export interface SlipInfo {
+	sendingBank: string;
+	transRef: string;
+}
+
+/**
+ * Decode the QR string read off a Thai bank transfer slip into its sending bank +
+ * transaction reference. Returns null if the string isn't a recognisable slip QR.
+ *
+ * NOTE: this only DECODES the slip QR — it does NOT confirm the transfer happened,
+ * the amount, or the recipient. It's enough to record a reference and de-duplicate
+ * repeat uploads, not to prove payment. Verifying the actual transaction needs a
+ * bank/verify API (intentionally out of scope here).
+ */
+export function decodeSlipQr(qrString: string): SlipInfo | null {
+	try {
+		const r = slipVerify(qrString) as Partial<SlipInfo> | null;
+		if (!r || !r.transRef || !r.sendingBank) return null;
+		return { sendingBank: r.sendingBank, transRef: r.transRef };
+	} catch {
+		return null;
+	}
 }
 
 /** Build all preset donation options (payload + QR image) for the given PromptPay id. */
