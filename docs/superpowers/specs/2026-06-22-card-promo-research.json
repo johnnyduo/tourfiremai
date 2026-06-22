@@ -1,0 +1,368 @@
+{
+  "summary": "Deep research harness — fan-out web searches, fetch sources, adversarially verify claims, synthesize a cited report.",
+  "agentCount": 106,
+  "logs": [
+    "Q: Thailand credit-card promotions active in 2026, organized by SPENDING CATEGORY. …",
+    "Decomposed into 5 angles: Issuer promo hubs (primary sources), Dining & online cashback, Fuel & grocery/supermarket, Travel: hotels, airlines, miles, Shopping, entertainment & health/insurance",
+    "Issuer promo hubs (primary sources): 6 results",
+    "Travel: hotels, airlines, miles: 6 results",
+    "Travel: hotels, airlines, miles: 5 novel (1 filtered)",
+    "Dining & online cashback: 6 results",
+    "Dining & online cashback: 4 novel (2 filtered)",
+    "Fuel & grocery/supermarket: 6 results",
+    "Fuel & grocery/supermarket: 5 novel (1 filtered)",
+    "Shopping, entertainment & health/insurance: 6 results",
+    "Shopping, entertainment & health/insurance: 4 novel (2 filtered)",
+    "Fetched 24 sources → 87 claims → verifying top 25",
+    "\"KTC's promotion hub organizes credit-card deals by…\": 3-0 ✓",
+    "\"Krungsri First Choice offers 1% cashback (capped a…\": 1-2 ✗",
+    "\"UOB Thailand's Grab Credit Card offers a recurring…\": 0-3 ✗",
+    "\"UOB's 'Hotel and Dining' promotion gives UOB credi…\": 0-3 ✗",
+    "\"The UOB Lazada Credit Card offers a 10% discount u…\": 3-0 ✓",
+    "\"The dining point-redemption cash back promotion is…\": 2-1 ✓",
+    "\"KTC offers a 10% cash back when cardmembers redeem…\": 3-0 ✓",
+    "\"The UOB Lazada Credit Card gives 50 THB cashback (…\": 2-1 ✓",
+    "\"The UOB Lazada Credit Card earns 10 UOB Rewards po…\": 3-0 ✓",
+    "\"Krungsri First Choice offers a Lazada online-shopp…\": 3-0 ✓",
+    "\"The promotion requires a minimum spend of 1,299 ba…\": 3-0 ✓",
+    "\"KTC offers up to 33% cashback at Bangchak (and for…\": 3-0 ✓",
+    "\"The end date shown by the page body is 30 June 202…\": 0-3 ✗",
+    "\"KTC offers tiered cashback at PTT Station fuel sta…\": 1-2 ✗",
+    "\"The KTC PTT Station fuel promotion runs from 1 Aug…\": 3-0 ✓",
+    "\"The promotion requires a minimum spend of 900 baht…\": 3-0 ✓",
+    "\"KTC credit cards earn 15% cashback (credited rewar…\": 3-0 ✓",
+    "\"The promotion runs from July 1, 2025 to June 30, 2…\": 3-0 ✓",
+    "\"The campaign valid period runs February 1, 2026 th…\": 3-0 ✓",
+    "\"KTC offers a grocery/supermarket campaign 'ช้อปซูเ…\": 3-0 ✓",
+    "\"Krungsri First Choice runs a 2026 travel promotion…\": 3-0 ✓",
+    "\"KTC offers ผ่อน 0% installment for up to 10 months…\": 3-0 ✓",
+    "\"KTC offers ผ่อน 0% installment financing for up to…\": 0-3 ✗",
+    "\"The promo applies to Krungsri First Choice Visa Pl…\": 3-0 ✓",
+    "\"KTC offers an Emirates airline promotion giving ca…\": 3-0 ✓",
+    "Verify done: 25 claims → 19 confirmed, 6 killed"
+  ],
+  "result": {
+    "question": "Thailand credit-card promotions active in 2026, organized by SPENDING CATEGORY. I'm building a section that lists current Thai credit-card deals grouped by what you spend on. For each promo find: issuing bank (KTC, SCB, Krungsri/First Choice, UOB, KBank/Kasikorn, Bangkok Bank, TTB, Citi, Krungthai/KTB, AEON), card name/tier if relevant, spending category (one of: dining/ร้านอาหาร, fuel/ปั๊มน้ำมัน, shopping/ช้อปปิ้ง, travel/ท่องเที่ยว-โรงแรม-สายการบิน, online/ออนไลน์, grocery/ซูเปอร์มาร์เก็ต, entertainment/หนัง-ความบันเทิง, health/สุขภาพ-ประกัน), the exact perk in Thai (e.g. cashback %, ผ่อน 0% กี่เดือน, เครดิตเงินคืน, แลกคะแนน, ส่วนลด, สะสมไมล์), the merchant/partner if it's a specific store (e.g. Shell, Bangchak, Central, Lotus's, Grab, Lazada, Agoda), the condition (ยอดขั้นต่ำ, ลงทะเบียน, เฉพาะบัตรบางใบ), and the validUntil end date. PRIORITIZE primary issuer promo pages (ktc.co.th, scb.co.th, uob.co.th, kasikornbank.com, firstchoice.co.th, krungsri.com etc.) over aggregators. Mark confidence and flag uncertain/expired ones. It's fine to return fewer but well-verified, currently-valid 2026 promos rather than guesses. Aim for coverage across all the spending categories listed.",
+    "summary": "Thailand has numerous active 2026 credit-card promotions that can be organized cleanly by spending category, with KTC and UOB/Krungsri First Choice being the most prolific verified issuers. KTC's promotion hub (ktc.co.th/promotion) is itself structured by spending category and yields well-verified, currently-valid 2026 promos across dining (10% cashback via FOREVER point redemption), fuel (Bangchak up to 33%, Caltex 15%), grocery (13% supermarket cashback), shopping (0% installments at Lotus's), and travel (Emirates discount up to 4,900 THB). UOB's Lazada Credit Card covers the online category with stacked benefits (10% discount, 50 THB cashback, points), and Krungsri First Choice covers online (Lazada cashback up to 5,670 THB) and travel (cashback up to 14,000 THB). The strongest coverage is for fuel, online, travel, dining, grocery, and shopping; entertainment and health/insurance had no surviving verified promo (the only health/insurance candidate was refuted). Most promos are sourced directly from primary issuer/issuer-partner pages with unanimous verification, though several fuel and online deals expire by end of June 2026 and need monitoring.",
+    "findings": [
+      {
+        "claim": "KTC's promotion hub is organized by spending category, providing a category-first taxonomy for a deals section",
+        "confidence": "high",
+        "vote": "3-0",
+        "sources": [
+          "https://www.ktc.co.th/promotion"
+        ],
+        "evidence": "Primary issuer page confirms category labels matching the target taxonomy: ร้านอาหาร (dining), ช้อปสินค้า/บริการออนไลน์ (online), ตั๋วเครื่องบิน/โรงแรม/ท่องเที่ยว (travel), รถยนต์/น้ำมัน/EV (fuel/auto), ช้อปปิ้ง (shopping), สุขภาพ/ความงาม (health/beauty), บันเทิง/งานอดิเรก (entertainment). Page actually has 16 categories; dedicated subpaths exist (e.g. /promotion/dining, /promotion/shopping). Structural fact, not perishable."
+      },
+      {
+        "claim": "DINING: KTC offers 10% เครดิตเงินคืน (credit cashback) when redeeming KTC FOREVER points equal to the spending amount per sales slip at participating restaurants. Condition: same-day SMS/web registration, no transaction splitting, cashback within 60 days; excludes KTC-Royal Orchid Plus, KTC Cash Back, corporate/govt cards. Valid 16 Apr 2026 - 31 Mar 2027.",
+        "confidence": "high",
+        "vote": "3-0 (perk) / 2-1 (date)",
+        "sources": [
+          "https://www.ktc.co.th/en/promotion/dining-restaurants/restaurants/diningcashback",
+          "https://www.ktc.co.th/promotion/dining-restaurants/restaurants/diningcashback"
+        ],
+        "evidence": "Authoritative Thai page header 'ระยะเวลาโปรโมชั่น 16 เม.ย. 69 - 31 มี.ค. 70' = 16 Apr 2026 - 31 Mar 2027 (BE 2569/2570), with internally consistent T&C window 1 Apr 2026 - 31 Mar 2027. No minimum spend stated. Caveat: the English page rendered a stale/mistranslated T&C window '1 May 25 - 31 Dec 25' (likely leftover text) — rely on the Thai page dates. Currently active."
+      },
+      {
+        "claim": "ONLINE: UOB Lazada Credit Card gives 10% ส่วนลด (discount) up to 150 THB per order on the Lazada Thailand app. Condition: min 500 THB/receipt, 1 discount/month/cardholder (all card types combined), select discount + UOB Lazada card before payment in the Lazada app. Valid 1 Feb - 30 Jun 2026.",
+        "confidence": "high",
+        "vote": "3-0",
+        "sources": [
+          "https://www.uob.co.th/personal/credit-cards/lazada-cvp.page"
+        ],
+        "evidence": "Primary page: 'รับส่วนลด 10% สูงสุด 150 บาท ต่อคำสั่งซื้อ (เมื่อมียอดขั้นต่ำ 500 บาท /เซลส์สลิป)'. Title confirms period 1 ก.พ. – 30 มิ.ย. 2569 (2026). Merchant: Lazada. Expires 30 Jun 2026 — time-sensitive."
+      },
+      {
+        "claim": "ONLINE: UOB Lazada Credit Card gives 50 THB เครดิตเงินคืน (free-shipping cashback) per transaction on Lazada app purchases, capped 100 THB/month/cardholder. Condition: min 1,000 THB/receipt; register via SMS 'ULFS26'+last 12 digits to 4545111, or UOB TMRW app Rewards+. Valid 1 Feb - 30 Jun 2026.",
+        "confidence": "high",
+        "vote": "2-1",
+        "sources": [
+          "https://www.uob.co.th/personal/credit-cards/lazada-cvp.page"
+        ],
+        "evidence": "Primary page: cashback '50 baht per transaction', min '1,000 บาท/เซลส์สลิป', cap '100 บาท/ท่าน (รวมทุกประเภทบัตร)/เดือน'. Nuance: source frames the 50 THB as a free-shipping (ค่าจัดส่ง) cashback rather than generic cashback. Merchant: Lazada. Expires 30 Jun 2026."
+      },
+      {
+        "claim": "ONLINE: UOB Lazada Credit Card earns 10 UOB Rewards points per 25 THB spent on the Lazada app (base tier), capped at 4,000 THB spend / 1,600 points per cycle. Valid 1 Feb - 30 Jun 2026.",
+        "confidence": "high",
+        "vote": "3-0",
+        "sources": [
+          "https://www.uob.co.th/personal/credit-cards/lazada-cvp.page"
+        ],
+        "evidence": "Primary page: 'รับคะแนนสะสมยูโอบี รีวอร์ด 10 คะแนน ทุกการใช้จ่าย 25 บาท' capped 'สูงสุดที่ 4,000 บาท ... จำกัดสูงสุด 1,600 คะแนน /รอบบัญชี'. A higher tier (15 points/25 THB for 4,001-10,000 THB, cap 3,600 points) also exists; exclusions: utility, MCC 4900, e-wallet. Merchant: Lazada. Expires 30 Jun 2026."
+      },
+      {
+        "claim": "ONLINE: Krungsri First Choice (and XU cards) offers a Lazada promotion giving monthly platform discount codes plus เครดิตเงินคืน up to 5,670 THB total per campaign. Condition: min 1,299 THB/sales slip before discount, registration via UCHOOSE app or SMS code 'ON2' (cashback portion); discount codes collectible without separate registration. Eligible: specific First Choice / XU cards. Valid ~1 Apr - 30 Jun 2026.",
+        "confidence": "high",
+        "vote": "3-0",
+        "sources": [
+          "https://www.firstchoice.co.th/promotion/lazada-creditcard",
+          "https://www.firstchoice.co.th/promotion/xu-lazada-credit-card"
+        ],
+        "evidence": "Primary page: 'รับเครดิตเงินคืนสูงสุด 5,670 บาท' — 60 baht per 4,000 spent (1.5%) or 270 per 15,000 (1.8%), capped 1,890/month and 5,670 total. Monthly discount codes (e.g. KFVXUAO426/526/626, ~180 baht / 13.9% on min 1,299). Dates in BE ('เม.ย. 69' = Apr 2026); page body shows a garbled/typo range, but validity is ~1 Apr - 30 Jun 2026. Expires 30 Jun 2026."
+      },
+      {
+        "claim": "FUEL: KTC gives up to 33% เครดิตเงินคืน at Bangchak and former Esso stations nationwide when redeeming every 100 KTC FOREVER points + 100 Bangchak Green Miles points; 12% with FOREVER points only or insufficient GreenMiles (plus a 20% tier and a +1% bonus for sub-3,000 THB transactions). Valid 1 Jul 2025 - 30 Jun 2026.",
+        "confidence": "high",
+        "vote": "3-0",
+        "sources": [
+          "https://www.ktc.co.th/en/promotion/auto-gas-ev/gas-station-ev-charger/bangchak-cashback"
+        ],
+        "evidence": "Primary page: '33% credit cash back with the usage of every 100 Bangchak and 100 KTC FOREVER points'; '12% cashback with KTC FOREVER points alone or insufficient Bangchak points'; locations 'all Bangchak and Former Esso service stations nationwide'. Period '1 Jul 25 - 30 Jun 26'. Merchant: Bangchak. Expires imminently (30 Jun 2026)."
+      },
+      {
+        "claim": "FUEL: KTC gives 15% เครดิตเงินคืน at Caltex stations by redeeming KTC FOREVER points equal to the transaction amount. Condition: min 900 THB/sales slip, one-time registration. Valid 1 Feb 2026 - 31 Dec 2026.",
+        "confidence": "high",
+        "vote": "3-0",
+        "sources": [
+          "https://www.caltex.com/th/motorists/rewards-and-offers/promotions/2603-ktccashback.html",
+          "https://www.ktc.co.th/en/promotion/auto-gas-ev/gas-station-ev-charger/caltex"
+        ],
+        "evidence": "Issuer-partner primary page: 'แลกรับเครดิตเงินคืน 15% เมื่อเติมน้ำมันผ่านบัตรฯ ครบ 900 บาทขึ้นไป/เซลส์สลิป + ใช้คะแนน KTC FOREVER เท่ายอดใช้จ่าย'. Valid 1 ก.พ. 2569 - 31 ธ.ค. 2569 (Feb 1 - Dec 31, 2026). Merchant: Caltex. Active through end of 2026."
+      },
+      {
+        "claim": "FUEL (EXPIRED — flag): KTC PTT Station fuel cashback promotion ran 1 Aug 2025 - 30 Nov 2025 (1 ส.ค. 68 - 30 พ.ย. 68) and is labeled โปรโมชั่นหมดอายุ (Expired). Do NOT list as active. Note: KTC has separate active PTT promos at different URLs (e.g. ptt-cashback-13, ktc-ptt).",
+        "confidence": "high",
+        "vote": "3-0",
+        "sources": [
+          "https://www.ktc.co.th/promotion/gas-auto/service-station-and-electric-charging-station/ptt-station-cashback"
+        ],
+        "evidence": "Primary page period '1 ส.ค. 68 - 30 พ.ย. 68' (BE 2568 = 2025) and explicitly labeled 'โปรโมชั่นหมดอายุ'. Also note the tiered no-points PTT cashback claim (4% over 1,000 THB / 3% for 700-999) was REFUTED (1-2 vote) — do not use."
+      },
+      {
+        "claim": "GROCERY/SUPERMARKET: KTC campaign 'ช้อปซูเปอร์ คุ้มเวอร์ยกบ้าน' gives 13% เครดิตเงินคืน via KTC FOREVER point redemption at leading supermarkets (Big C/Mini Big C/Lotus's/Foodland/UFM Fuji/MaxValu/Tops/Villa Market). Condition: registration required. Valid 1 Feb 2026 - 30 Jun 2026.",
+        "confidence": "high",
+        "vote": "3-0",
+        "sources": [
+          "https://www.ktc.co.th/promotion/shopping/supermarket-convenience-store/supermarket-campaign"
+        ],
+        "evidence": "Primary page: 'แลกคะแนนรับเครดิตเงินคืน 13%', dates 1 ก.พ. 69 - 30 มิ.ย. 69 (Feb-Jun 2026), ลงทะเบียน required. An older 2023 same-name 12% variant exists at a different URL — use the 2026 13% version. Expires 30 Jun 2026."
+      },
+      {
+        "claim": "SHOPPING/GROCERY: KTC offers ผ่อน 0% installments up to 10 months at Lotus's on credit cards, and up to 24 months on the KTC PROUD cash-advance card (บัตรกดเงินสด). Valid until 31 Dec 2026.",
+        "confidence": "high",
+        "vote": "3-0",
+        "sources": [
+          "https://www.ktc.co.th/promotion/shopping/supermarket-convenience-store/halfpoint-supermarket"
+        ],
+        "evidence": "Primary page: Lotus's — Credit Card 'ผ่อนชำระ 0% นานสูงสุด 10 เดือน' and KTC PROUD 'ผ่อนชำระ 0% นานสูงสุด 24 เดือน', Valid Until 31 ธ.ค. 69. Merchant: Lotus's. Note: a related claim of 0% up to 10 months at Big C/Makro was REFUTED (0-3) — do not list that. Active through end of 2026."
+      },
+      {
+        "claim": "TRAVEL: Krungsri First Choice 'Journey Rewards Every Trip' gives เครดิตเงินคืน up to 14,000 THB per primary card (full-campaign cap; also 3,500 THB/account/month) on travel spending — hotels, flights, car rental, Duty Free, theme parks via Agoda/Traveloka/Trip.com/Booking.com/King Power. Condition: register via SMS or UCHOOSE code 'TR2' before purchase. Eligible: Krungsri FirstChoice Visa Platinum Blue Plus, Visa Platinum, XU Digital Credit Card. Valid 1 May - 31 Aug 2026.",
+        "confidence": "high",
+        "vote": "3-0",
+        "sources": [
+          "https://www.firstchoice.co.th/promotion/travel-airline"
+        ],
+        "evidence": "Primary page: 'เครดิตเงินคืนสูงสุด 14,000 บาท', Valid Until 31 ส.ค. 69 (Aug 2026), eligible cards listed verbatim. 14,000 is the full-campaign account cap, not per transaction. Partners: Agoda, Traveloka, Trip.com, Booking.com, King Power. Active through 31 Aug 2026."
+      },
+      {
+        "claim": "TRAVEL/AIRLINE: KTC offers an Emirates promotion giving up to 4,900 THB discount per passenger per booking (Business Class top fares; Economy up to 2,000 THB), applied via promo code THKTC25 at emirates.th/thktc25. Condition: registration required (for points-cashback portion); booking period 9 May - 8 Aug 2026, travel period 11 May - 30 Nov 2026.",
+        "confidence": "high",
+        "vote": "3-0",
+        "sources": [
+          "https://www.ktc.co.th/promotion/air-ticket-hotels-travel",
+          "https://www.ktc.co.th/en/promotion/air-ticket-hotels-travel/air-tickets/emirates"
+        ],
+        "evidence": "English detail page: 'Get up to THB4,900 per passenger per booking from Published Fare in Business Class', booking '9 May 26 - 8 Aug 26'. Thai listing: 'รับส่วนลดสูงสุด 4,900 บาท', '9 พ.ค. 69 - 8 ส.ค. 69', with ลงทะเบียน button. Partner: Emirates. Active through 8 Aug 2026."
+      }
+    ],
+    "caveats": "TIME-SENSITIVITY: Several promos expire 30 Jun 2026 — within days of the research date (2026-06-22): all three UOB Lazada benefits, the Krungsri First Choice Lazada cashback, the KTC Bangchak fuel cashback, and the KTC 13% supermarket campaign. These must be re-checked before publishing and flagged with imminent end dates. BUDDHIST-ERA DATES: All Thai source dates are in B.E. (2569 = 2026, 2570 = 2027, 2568 = 2025); multiple verifiers initially misread these, and one source (First Choice Lazada) shows a garbled/typo date range in its body. ENGLISH-vs-THAI MISMATCH: The KTC dining page's English version rendered a stale T&C window (1 May 25 - 31 Dec 25) that conflicts with the authoritative Thai header (16 Apr 2026 - 31 Mar 2027) — trust Thai pages for dates. CATEGORY GAPS: No verified, currently-valid promo survived for the ENTERTAINMENT (หนัง-ความบันเทิง) or HEALTH/INSURANCE (สุขภาพ-ประกัน) categories — the only health/insurance candidate (First Choice 1% insurance cashback) was refuted on a 1-2 vote. ISSUER COVERAGE GAP: Only KTC, UOB, and Krungsri/First Choice produced surviving verified promos; SCB, KBank/Kasikorn, Bangkok Bank, TTB, Citi, Krungthai/KTB, and AEON were NOT verified in this round despite being in scope. POINT-REDEMPTION MECHANICS: Most KTC 'cashback' perks are actually แลกคะแนน (redeem FOREVER points equal to spend) for เครดิตเงินคืน, not plain spend-based cashback — describe them accurately in the section.",
+    "openQuestions": [
+      "What active 2026 promos exist for the uncovered issuers (SCB, KBank/Kasikorn, Bangkok Bank, TTB, Citi, Krungthai/KTB, AEON) across all categories?",
+      "Are there any verified active 2026 promos for the ENTERTAINMENT (cinema/Major Cineplex, streaming) and HEALTH/INSURANCE categories to fill those gaps?",
+      "Which specific restaurants/merchants participate in the KTC dining 10% cashback and the KTC supermarket 13% campaign (the pages do not fully enumerate partners)?",
+      "Will the cluster of promos expiring 30 Jun 2026 (UOB Lazada, First Choice Lazada, KTC Bangchak, KTC supermarket) be renewed/extended for H2 2026, and what are the replacement terms?"
+    ],
+    "refuted": [
+      {
+        "claim": "UOB Thailand's Grab Credit Card offers a recurring 'Happy Sunday' promotion giving a 200 THB GrabFood discount on a minimum order of 800 THB (excluding delivery fee), every Sunday.",
+        "vote": "0-3",
+        "source": "https://www.uob.co.th/personal/credit-cards/promotions.page"
+      },
+      {
+        "claim": "UOB's 'Hotel and Dining' promotion gives UOB credit cards an extra 50% UOB Rewards points (dining/travel-accommodation category), valid until 31 July 2025 (B.E. 2568).",
+        "vote": "0-3",
+        "source": "https://www.uob.co.th/personal/credit-cards/promotions.page"
+      },
+      {
+        "claim": "Krungsri First Choice offers 1% cashback (capped at 15,000 baht/cardholder) on insurance premium payments during 1 April – 30 June 2569 (2026), making it a health/insurance category promo.",
+        "vote": "1-2",
+        "source": "https://www.firstchoice.co.th/promotion/insurance-creditcard"
+      },
+      {
+        "claim": "The end date shown by the page body is 30 June 2025 (B.E. 2568), conflicting with the source title's claim of valid-until 30 June 2026, casting doubt on whether this promo is currently active in 2026.",
+        "vote": "0-3",
+        "source": "https://www.firstchoice.co.th/promotion/lazada-creditcard"
+      },
+      {
+        "claim": "KTC offers tiered cashback at PTT Station fuel stations: 4% cashback for fuel purchases of 1,000 baht or more per receipt, and 3% for 700-999 baht per receipt, without using points.",
+        "vote": "1-2",
+        "source": "https://www.ktc.co.th/promotion/gas-auto/service-station-and-electric-charging-station/ptt-station-cashback"
+      },
+      {
+        "claim": "KTC offers ผ่อน 0% installment financing for up to 10 months at Big C and Makro on KTC credit cards, valid until December 31, 2026 (31 ธ.ค. 69).",
+        "vote": "0-3",
+        "source": "https://www.ktc.co.th/promotion/shopping/supermarket-convenience-store/halfpoint-supermarket"
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://www.ktc.co.th/promotion",
+        "quality": "primary",
+        "angle": "Issuer promo hubs (primary sources)",
+        "claimCount": 5
+      },
+      {
+        "url": "https://www.krungsricard.com/th/promotion",
+        "quality": "primary",
+        "angle": "Issuer promo hubs (primary sources)",
+        "claimCount": 1
+      },
+      {
+        "url": "https://www.uob.co.th/personal/credit-cards/promotions.page",
+        "quality": "primary",
+        "angle": "Issuer promo hubs (primary sources)",
+        "claimCount": 4
+      },
+      {
+        "url": "https://www.kasikornbank.com/th/promotion/creditcard/category/flights-hotels/",
+        "quality": "unreliable",
+        "angle": "Issuer promo hubs (primary sources)",
+        "claimCount": 0
+      },
+      {
+        "url": "https://www.bangkokbank.com/th-TH/Personal/Cards/Credit-Cards/Promotions",
+        "quality": "unreliable",
+        "angle": "Issuer promo hubs (primary sources)",
+        "claimCount": 0
+      },
+      {
+        "url": "https://www.firstchoice.co.th/promotion/insurance-creditcard",
+        "quality": "primary",
+        "angle": "Issuer promo hubs (primary sources)",
+        "claimCount": 5
+      },
+      {
+        "url": "https://www.ktc.co.th/en/promotion/dining-restaurants/restaurants/diningcashback",
+        "quality": "primary",
+        "angle": "Dining & online cashback",
+        "claimCount": 5
+      },
+      {
+        "url": "https://www.uob.co.th/personal/credit-cards/lazada-cvp.page",
+        "quality": "primary",
+        "angle": "Dining & online cashback",
+        "claimCount": 5
+      },
+      {
+        "url": "https://www.kasikornbank.com/th/promotion/creditcard/pages/shopping-online-double-day.aspx",
+        "quality": "unreliable",
+        "angle": "Dining & online cashback",
+        "claimCount": 0
+      },
+      {
+        "url": "https://www.firstchoice.co.th/promotion/lazada-creditcard",
+        "quality": "primary",
+        "angle": "Dining & online cashback",
+        "claimCount": 5
+      },
+      {
+        "url": "https://www.ktc.co.th/promotion/gas-auto/service-station-and-electric-charging-station/ptt-station-cashback",
+        "quality": "primary",
+        "angle": "Fuel & grocery/supermarket",
+        "claimCount": 4
+      },
+      {
+        "url": "https://www.ktc.co.th/en/promotion/auto-gas-ev/gas-station-ev-charger/bangchak-cashback",
+        "quality": "primary",
+        "angle": "Fuel & grocery/supermarket",
+        "claimCount": 5
+      },
+      {
+        "url": "https://www.caltex.com/th/motorists/rewards-and-offers/promotions/2603-ktccashback.html",
+        "quality": "primary",
+        "angle": "Fuel & grocery/supermarket",
+        "claimCount": 5
+      },
+      {
+        "url": "https://www.ktc.co.th/promotion/shopping/supermarket-convenience-store/supermarket-campaign",
+        "quality": "primary",
+        "angle": "Fuel & grocery/supermarket",
+        "claimCount": 5
+      },
+      {
+        "url": "https://www.ktc.co.th/promotion/shopping/supermarket-convenience-store/halfpoint-supermarket",
+        "quality": "primary",
+        "angle": "Fuel & grocery/supermarket",
+        "claimCount": 5
+      },
+      {
+        "url": "https://www.firstchoice.co.th/promotion/travel-airline",
+        "quality": "primary",
+        "angle": "Travel: hotels, airlines, miles",
+        "claimCount": 5
+      },
+      {
+        "url": "https://www.uob.co.th/personal/promotions/creditcard/airlines/airlines-q2-apw502-0625.page",
+        "quality": "primary",
+        "angle": "Travel: hotels, airlines, miles",
+        "claimCount": 0
+      },
+      {
+        "url": "https://www.ktc.co.th/promotion/air-ticket-hotels-travel",
+        "quality": "primary",
+        "angle": "Travel: hotels, airlines, miles",
+        "claimCount": 4
+      },
+      {
+        "url": "https://www.krungsricard.com/th/promotion/agoda",
+        "quality": "primary",
+        "angle": "Travel: hotels, airlines, miles",
+        "claimCount": 5
+      },
+      {
+        "url": "https://www.uob.co.th/personal/credit-cards/promotions/travel.page",
+        "quality": "primary",
+        "angle": "Travel: hotels, airlines, miles",
+        "claimCount": 0
+      },
+      {
+        "url": "https://www.ktc.co.th/promotion/health-beauty/hospital",
+        "quality": "primary",
+        "angle": "Shopping, entertainment & health/insurance",
+        "claimCount": 4
+      },
+      {
+        "url": "https://www.ktc.co.th/promotion/book-hobby-entertainment/cinema/exclusively-major-cineplex",
+        "quality": "primary",
+        "angle": "Shopping, entertainment & health/insurance",
+        "claimCount": 5
+      },
+      {
+        "url": "https://www.firstchoice.co.th/promotion/redeem-sf-movie-ticket",
+        "quality": "primary",
+        "angle": "Shopping, entertainment & health/insurance",
+        "claimCount": 5
+      },
+      {
+        "url": "https://www.centralthe1card.com/Promotion",
+        "quality": "primary",
+        "angle": "Shopping, entertainment & health/insurance",
+        "claimCount": 5
+      }
+    ],
+    "stats": {
+      "angles": 5,
+      "sourcesFetched": 24,
+      "claimsExtracted": 87,
+      "claimsVerified": 25,
+      "confirmed": 19,
+      "killed": 6,
+      "afterSynthesis": 13,
+      "urlDupes": 1,
+      "budgetDropped": 5,
+      "agentCalls": 106
+    }
+  }
+}
