@@ -74,18 +74,27 @@ export async function refresh(outPath = 'static/data/deals.json'): Promise<Deals
 
 /**
  * Pre-warm wsrv.nl's CDN cache so the first real visitor gets a fast (~0.1s)
- * cached WebP instead of a slow (~3s) cold conversion. Best-effort, capped.
+ * cached WebP instead of a slow (~3s) cold conversion. Best-effort, capped,
+ * and bounded overall so a slow/cold CDN can't hang the whole refresh job
+ * (it previously ran unbounded and silently blocked the run for 8+ minutes).
  */
-async function warmImageCache(images: Array<string | undefined>) {
+async function warmImageCache(images: Array<string | undefined>, budgetMs = 4 * 60 * 1000) {
 	const urls = warmUrls(images).slice(0, 1400);
 	let ok = 0;
-	await mapLimit(urls, 12, async (u) => {
+	let done = 0;
+	const deadline = Date.now() + budgetMs;
+	const work = mapLimit(urls, 40, async (u) => {
+		if (Date.now() > deadline) return;
 		try {
-			await fetch(u, { method: 'GET', signal: AbortSignal.timeout(20000) });
+			await fetch(u, { method: 'GET', signal: AbortSignal.timeout(10000) });
 			ok++;
 		} catch {
 			/* best effort */
+		} finally {
+			done++;
+			if (done % 200 === 0) console.log(`warming… ${done}/${urls.length}`);
 		}
 	});
+	await Promise.race([work, new Promise((r) => setTimeout(r, budgetMs))]);
 	console.log(`warmed ${ok}/${urls.length} image variants`);
 }
